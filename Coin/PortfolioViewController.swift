@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  SecondViewController.swift
 //  Coin
 //
 //  Created by Jan Moravek on 27/11/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class PortfolioViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
