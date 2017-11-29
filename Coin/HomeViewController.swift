@@ -11,9 +11,9 @@ import UIKit
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     //1
-    @IBOutlet weak var refreshButton: UIBarButtonItem!
-    @IBOutlet weak var currencySwitchControl: UISegmentedControl!
     @IBOutlet weak var cellTableView: UITableView!
+    @IBOutlet weak var refreshButton: UIBarButtonItem!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,14 +45,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    
-    
-    
-    @IBAction func refreshButtonPressed(_ sender: UIBarButtonItem) {
-    }
-
-    @IBAction func currencySwitchControlPressed(_ sender: UISegmentedControl) {
-    }
     
     
 }

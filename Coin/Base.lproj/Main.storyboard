@@ -13,7 +13,7 @@
         <!--Coin Currency-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="HomeViewController" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="HomeViewController" customModule="Coin" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,9 +35,9 @@
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cfa-Hh-9aJ">
                                 <rect key="frame" x="10" y="112" width="355" height="496"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.98039215686274506" green="0.80000000000000004" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <inset key="separatorInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="pZ5-QN-JjZ">
                                         <rect key="frame" x="0.0" y="28" width="355" height="44"/>
@@ -46,6 +46,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="355" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -74,8 +75,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cellTableView" destination="cfa-Hh-9aJ" id="lum-XO-f5L"/>
-                        <outlet property="currencySwitchControl" destination="U8F-4b-rOj" id="dlF-t1-b4f"/>
-                        <outlet property="refreshButton" destination="Cva-CC-qfe" id="tBr-sI-21V"/>
+                        <outlet property="refreshButton" destination="Cva-CC-qfe" id="aEE-UP-uRW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -85,7 +85,7 @@
         <!--Alert View Controller-->
         <scene sceneID="0XL-Cs-gD2">
             <objects>
-                <viewController id="aDM-XE-JaH" customClass="AlertViewController" customModule="Coin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aDM-XE-JaH" customClass="AlertViewController" customModule="Coin" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lv0-6q-TWz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,7 +112,7 @@
         <!--Portfolio View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="PortfolioViewController" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="PortfolioViewController" customModule="Coin" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

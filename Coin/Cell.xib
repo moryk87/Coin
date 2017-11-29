@@ -19,11 +19,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="300" height="39.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitcoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfk-CJ-pNG">
-                        <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ethereum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfk-CJ-pNG">
+                        <rect key="frame" x="0.0" y="0.0" width="90" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="6oe-UA-Ntv"/>
-                            <constraint firstAttribute="width" constant="80" id="TTX-v3-cgO"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="6oe-UA-Ntv"/>
+                            <constraint firstAttribute="width" constant="90" id="TTX-v3-cgO"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" red="0.1529411765" green="0.69411764710000001" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -40,7 +40,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lT0-jr-ozx">
-                        <rect key="frame" x="80" y="11" width="40" height="21.5"/>
+                        <rect key="frame" x="90" y="11" width="40" height="21.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="a0d-OW-z4k"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="snB-gd-HpI"/>
@@ -60,6 +60,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="nfk-CJ-pNG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="0LF-H3-oi3"/>
                     <constraint firstAttribute="bottom" secondItem="lT0-jr-ozx" secondAttribute="bottom" constant="7" id="5QL-Hv-qOr"/>
