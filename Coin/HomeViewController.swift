@@ -7,12 +7,28 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    let baseURL = "https://apiv2.bitcoinaverage.com/indices/global/ticker/"
+    //"https://apiv2.bitcoinaverage.com/indices/global/ticker/all?crypto=BTC,ETH,LTC&fiat=USD,EUR,CZK"
+    let currencyShortcutArray = ["CZK", "USD", "EUR"]
+    var currentCurency = "CZK"
+    var coinNameArray = ["Bitcoin","Ethereum","Litecoin"]
+    //var coinNameArray = ["Bitcoin","Ethereum","Ripple","Dash","Litecoin","Monero","NEM"]
+    var coinTickerArray = ["BTC","ETH","LTC"]
+    //var coinTickerArray = ["BTC","ETH","XRP","DASH","LTC","XMR","XEM"]
+    var finalURL = ""
+
+    let homeLabel = HomeLabel ()
+    
+    
     //1
     @IBOutlet weak var cellTableView: UITableView!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
+    @IBOutlet weak var timeStampLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -32,20 +48,81 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let coinCell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomCell
         
-        let coinArray = ["Bitcoin", "Ethereum", "XEM"]
+        coinCell.coinNameCell.text = coinNameArray[indexPath.row]
+        coinCell.tickerCell.text = coinTickerArray[indexPath.row]
         
-        coinCell.coinNameCell.text = coinArray[indexPath.row]
+        print(coinTickerArray[indexPath.row])
+        
+        finalURL = baseURL+coinTickerArray[indexPath.row]+currentCurency
+
+        getData(url: finalURL)
+
+        
+//        changeCell
+//        priceCell
         
         return coinCell
-        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return coinTickerArray.count
     }
     
+    //MARK: - Networking
+    /***************************************************************/
     
+    func getData(url: String) {
+        
+        Alamofire.request(url, method: .get).responseJSON {
+            response in
+            if response.result.isSuccess {
+                let dataJSON : JSON = JSON(response.result.value!)
+                
+                self.updateCoinData(json: dataJSON)
+
+                print(url)
+                print(dataJSON)
+            } else {
+                print("Error \(String(describing: response.result.error))")
+                self.timeStampLabel.text = "Connection issues"
+            }
+            
+        }
+            
+        
+        
+//        timestmap
+    }
     
+    //MARK: - JSON Parsing
+    /***************************************************************/
+    
+    func updateCoinData(json: JSON) -> Double {
+
+//        if let changeResult = json["changes"]["percent"]["day"].double {
+//            coinCell.changeCell.text = changeResult
+//
+//        } else {
+//            timeStampLabel.text = "Price Unavailable"
+//
+//        }
+
+        let priceResult = json["last"].double
+        print(priceResult)
+        
+//        if let timeResult = json["display_timestamp"].string {
+//            timeStampLabel.text = timeResult
+//
+//        } else {
+//            timeStampLabel.text = "Price Unavailable"
+//        }
+        
+        return priceResult!
+    }
+    
+//    func updateUI {
+//
+//    }
     
 }
 

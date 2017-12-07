@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142F14DA1FD96A39009B125D /* aa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142F14D91FD96A39009B125D /* aa.swift */; };
 		144B97011FCF12AA00E935A0 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B96FF1FCF12AA00E935A0 /* CustomCell.swift */; };
 		144B97021FCF12AA00E935A0 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144B97001FCF12AA00E935A0 /* Cell.xib */; };
+		144B97061FD02A1400E935A0 /* HomeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B97051FD02A1400E935A0 /* HomeLabel.swift */; };
 		147448ED1FCC226400ABBED8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147448EC1FCC226400ABBED8 /* AppDelegate.swift */; };
 		147448EF1FCC226400ABBED8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147448EE1FCC226400ABBED8 /* HomeViewController.swift */; };
 		147448F11FCC226400ABBED8 /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147448F01FCC226400ABBED8 /* PortfolioViewController.swift */; };
@@ -20,8 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		142F14D91FD96A39009B125D /* aa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aa.swift; sourceTree = "<group>"; };
 		144B96FF1FCF12AA00E935A0 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		144B97001FCF12AA00E935A0 /* Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
+		144B97051FD02A1400E935A0 /* HomeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLabel.swift; sourceTree = "<group>"; };
 		147448E91FCC226400ABBED8 /* Coin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		147448EC1FCC226400ABBED8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		147448EE1FCC226400ABBED8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +55,7 @@
 		144B96CF1FCED55300E935A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				144B97051FD02A1400E935A0 /* HomeLabel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -69,6 +74,7 @@
 			children = (
 				147448EC1FCC226400ABBED8 /* AppDelegate.swift */,
 				147448EE1FCC226400ABBED8 /* HomeViewController.swift */,
+				142F14D91FD96A39009B125D /* aa.swift */,
 				147448F01FCC226400ABBED8 /* PortfolioViewController.swift */,
 				147449001FCC2B2D00ABBED8 /* AlertViewController.swift */,
 				144B96D61FCED87F00E935A0 /* Custom Cell */,
@@ -267,8 +273,10 @@
 				147448F11FCC226400ABBED8 /* PortfolioViewController.swift in Sources */,
 				147448ED1FCC226400ABBED8 /* AppDelegate.swift in Sources */,
 				144B97011FCF12AA00E935A0 /* CustomCell.swift in Sources */,
+				144B97061FD02A1400E935A0 /* HomeLabel.swift in Sources */,
 				147448EF1FCC226400ABBED8 /* HomeViewController.swift in Sources */,
 				147449011FCC2B2D00ABBED8 /* AlertViewController.swift in Sources */,
+				142F14DA1FD96A39009B125D /* aa.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

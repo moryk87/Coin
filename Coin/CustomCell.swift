@@ -1,5 +1,5 @@
 //
-//  TableViewCell1.swift
+//  CustomCell.swift
 //  Coin
 //
 //  Created by Jan Moravek on 29/11/2017.
