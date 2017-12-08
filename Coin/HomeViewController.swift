@@ -24,17 +24,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     //var coinTickerArray = ["BTC","ETH","XRP","DASH","LTC","XMR","XEM"]
     
     var dataArray = [HomeLabel] ()
-    var storeArray : Double = 0.00
-    var flo : Double = 0.00
-    
-    let messageArray: [StoreArray] = [StoreArray] ()
-    
-    struct StoreArray {
-
-        var tickerCell : String = ""
-        var changeCell : Double = 0.00
-        var priceCell : Double = 0.00
-    }
     
     //1
     @IBOutlet weak var cellTableView: UITableView!
@@ -52,16 +41,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //4
         cellTableView.register(UINib(nibName: "Cell", bundle: nil), forCellReuseIdentifier: "customCell")
         
-        for (n, ticker) in coinTickerArray.enumerated() {
+        for (n, _) in coinTickerArray.enumerated() {
 //            print("\(n): '\(ticker)'")
             dataArray.append(HomeLabel(coinNameCell: coinNameArray[n], tickerCell: coinTickerArray[n]))
         }
         
-        print(dataArray[2].coinNameCell)
-        print(dataArray[1].tickerCell)
-        print(dataArray[0].changeCell, "\n")
+        storeData()
         
     }
+    
+    //MARK: - tableView
+    /***************************************************************/
     
     //3
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,12 +60,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         coinCell.coinNameCell.text = dataArray[indexPath.row].coinNameCell
         coinCell.tickerCell.text = dataArray[indexPath.row].tickerCell
-        coinCell.priceCell.text = String(dataArray[indexPath.row].changeCell)
-        coinCell.changeCell.text = String(dataArray[indexPath.row].priceCell)
+        coinCell.changeCell.text = String(format: "%.2f", dataArray[indexPath.row].changeCell)+" %"
+        coinCell.priceCell.text = String(format: "%.2f", dataArray[indexPath.row].priceCell)
         
-        finalURL = baseURL+coinTickerArray[indexPath.row]+currentCurency
-        
-        getData(url: finalURL)
+        if dataArray[indexPath.row].changeCell >= 0 {
+            coinCell.changeCell.textColor = UIColor(red:0.00, green:0.63, blue:0.00, alpha:1.0)
+        } else {
+            coinCell.changeCell.textColor = UIColor(red:0.87, green:0.23, blue:0.23, alpha:1.0)
+        }
         
         return coinCell
     }
@@ -88,14 +80,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     //MARK: - Networking
     /***************************************************************/
     
-    func getData(url: String) {
+    func getData(url: String, number: Int) {
         
         Alamofire.request(url, method: .get).responseJSON {
             response in
             if response.result.isSuccess {
                 let dataJSON : JSON = JSON(response.result.value!)
                 
-                self.updateCoinData(json: dataJSON)
+                self.updateCoinData(json: dataJSON, number: number)
 
                 print(url)
                 print(dataJSON)
@@ -110,69 +102,48 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     //MARK: - JSON Parsing
     /***************************************************************/
     
-    func updateCoinData(json: JSON) {
+    func updateCoinData(json: JSON, number: Int) {
 
         if let changeResult = json["changes"]["percent"]["day"].double {
-     
-            print(changeResult)
-            storeArray = changeResult
-            messageArray.append
-            print("storeArray: \(storeArray)")
+            dataArray[number].changeCell = changeResult
+            print("changeCell: \(dataArray[number].changeCell)")
         } else {
-            timeStampLabel.text = "XXX Unavailable"
+            timeStampLabel.text = "Change Unavailable"
         }
 
         if let priceResult = json["last"].double {
-            print(priceResult)
-            flo = priceResult
-            print("flo: \(flo)")
+            dataArray[number].priceCell = priceResult
+            print("priceCell: \(dataArray[number].priceCell)","\n")
         } else {
-            timeStampLabel.text = "Price is Unavailable"
+            timeStampLabel.text = "Price Unavailable"
         }
 
-        let sender = snapshotValue["Sender"]!
-        let text = snapshotValue["MessageBody"]!
+        if let timeResult = json["display_timestamp"].string {
+            timeStampLabel.text = timeResult
+        } else {
+            timeStampLabel.text = "Time Unavailable"
+        }
         
-        let message = Message ()
-        message.sender = sender
-        message.messageBody = text
-        
-        self.messageArray.append(message)
-        
-//        if let timeResult = json["display_timestamp"].string {
-//            timeStampLabel.text = timeResult
-//
-//        } else {
-//            timeStampLabel.text = "Price Unavailable"
-//        }
-        
+       self.cellTableView.reloadData()
     }
 
+    //MARK: - storing Data
+    /***************************************************************/
     
     func storeData () {
         for (n, _) in coinTickerArray.enumerated() {
             
             finalURL = baseURL+coinTickerArray[n]+currentCurency
-            
-            getData(url: finalURL)
-            
-            dataArray[n].changeCell = storeArray
-            dataArray[n].priceCell = flo
-            
-            //reload.tableview
+            getData(url: finalURL, number: n)
         }
     }
     
+    //MARK: - IBAction
+    /***************************************************************/
     
-    
-    
-        
-    
-    
-    
-//    func updateUI {
-//
-//    }
+    @IBAction func refreshButtonPressed(_ sender: UIBarButtonItem) {
+        self.cellTableView.reloadData()
+    }
     
 }
 

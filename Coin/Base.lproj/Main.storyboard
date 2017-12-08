@@ -120,7 +120,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Refresh" id="Cva-CC-qfe">
                             <color key="tintColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="refreshButtonPressed:" destination="9pv-A4-QxB" id="AQM-Yv-cxF"/>
+                                <action selector="refreshButtonPressed:" destination="9pv-A4-QxB" id="UL3-du-ygU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
