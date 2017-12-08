@@ -10,19 +10,15 @@ import Foundation
 
 class HomeLabel {
     
-    let coinNameCell : String
-    let tickerCell : String
-    let changeCell : Double
-    let priceCell : Double
+    var coinNameCell : String
+    var tickerCell : String
+    var changeCell : Double = 0.00
+    var priceCell : Double = 0.00
+    var ownedCell : Double = 0.00
     
-    init (name: String, ticker: String, change: Double, last: Double) {
-        
-        coinNameCell = name
-        tickerCell = ticker
-        changeCell = change
-        priceCell = last
-    
+    init (coinNameCell: String, tickerCell: String) {
+        self.coinNameCell = coinNameCell
+        self.tickerCell = tickerCell
     }
-    //var coinNameArray = ["Bitcoin","Ethereum","Ripple","Dash","Litecoin","Monero","NEM"]
-    //var coinTickerArray = ["BTC","ETH","XRP","DASH","LTC","XMR","XEM"]
+
 }
