@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="U8F-4b-rOj">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="U8F-4b-rOj">
                                 <rect key="frame" x="10" y="74" width="355" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="hIl-Me-dxy"/>
@@ -35,7 +35,7 @@
                                 </segments>
                                 <color key="tintColor" red="0.15294117647058825" green="0.69411764705882351" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="currencySwitchControlPressed:" destination="9pv-A4-QxB" eventType="valueChanged" id="Rio-QJ-TmF"/>
+                                    <action selector="currencyControlPressed:" destination="9pv-A4-QxB" eventType="valueChanged" id="RCJ-Yj-ouA"/>
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cfa-Hh-9aJ">
@@ -75,11 +75,11 @@
                                 <color key="textColor" red="0.98039215686274506" green="0.80000000000000004" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="data source:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9m-hd-BhJ">
-                                <rect key="frame" x="205" y="598" width="65" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="source:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9m-hd-BhJ">
+                                <rect key="frame" x="225" y="598" width="40" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="4Ze-PA-7gz"/>
-                                    <constraint firstAttribute="width" constant="65" id="ZlW-GH-wpO"/>
+                                    <constraint firstAttribute="width" constant="40" id="ZlW-GH-wpO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                 <color key="textColor" red="0.98039215686274506" green="0.80000000000000004" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -102,7 +102,7 @@
                             <constraint firstItem="eTS-mk-qNL" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="3nI-aV-vqW"/>
                             <constraint firstItem="U8F-4b-rOj" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="10" id="AlZ-kI-t6T"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="cfa-Hh-9aJ" secondAttribute="bottom" constant="20" id="B3D-3s-evl"/>
-                            <constraint firstItem="Q4b-vt-HrG" firstAttribute="leading" secondItem="r9m-hd-BhJ" secondAttribute="trailing" id="BlF-kd-RSk"/>
+                            <constraint firstItem="Q4b-vt-HrG" firstAttribute="leading" secondItem="r9m-hd-BhJ" secondAttribute="trailing" constant="5" id="BlF-kd-RSk"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="r9m-hd-BhJ" secondAttribute="bottom" id="C0h-to-3m9"/>
                             <constraint firstItem="U8F-4b-rOj" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="10" id="Dq6-Km-unU"/>
                             <constraint firstItem="7oO-Iz-DUa" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="10" id="Ezg-3T-1GQ"/>
@@ -126,6 +126,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cellTableView" destination="cfa-Hh-9aJ" id="lum-XO-f5L"/>
+                        <outlet property="currencyControl" destination="U8F-4b-rOj" id="Lku-x9-xYe"/>
                         <outlet property="refreshButton" destination="Cva-CC-qfe" id="aEE-UP-uRW"/>
                         <outlet property="timeStampLabel" destination="eTS-mk-qNL" id="cfJ-AF-8ht"/>
                     </connections>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1439CD2F1FE021AF0032E629 /* Double+WithSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439CD2E1FE021AF0032E629 /* Double+WithSeparator.swift */; };
 		144B97011FCF12AA00E935A0 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B96FF1FCF12AA00E935A0 /* CustomCell.swift */; };
 		144B97021FCF12AA00E935A0 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144B97001FCF12AA00E935A0 /* Cell.xib */; };
 		144B97061FD02A1400E935A0 /* HomeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B97051FD02A1400E935A0 /* HomeLabel.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1439CD2E1FE021AF0032E629 /* Double+WithSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+WithSeparator.swift"; sourceTree = "<group>"; };
 		144B96FF1FCF12AA00E935A0 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		144B97001FCF12AA00E935A0 /* Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
 		144B97051FD02A1400E935A0 /* HomeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLabel.swift; sourceTree = "<group>"; };
@@ -50,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		140EC21E1FE1846100406670 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1439CD2E1FE021AF0032E629 /* Double+WithSeparator.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		144B96CF1FCED55300E935A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +119,7 @@
 		147448EB1FCC226400ABBED8 /* Coin */ = {
 			isa = PBXGroup;
 			children = (
+				140EC21E1FE1846100406670 /* Extensions */,
 				144B96D11FCED57100E935A0 /* Controller */,
 				144B96D01FCED56A00E935A0 /* View */,
 				144B96CF1FCED55300E935A0 /* Model */,
@@ -268,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				147448F11FCC226400ABBED8 /* PortfolioViewController.swift in Sources */,
+				1439CD2F1FE021AF0032E629 /* Double+WithSeparator.swift in Sources */,
 				147448ED1FCC226400ABBED8 /* AppDelegate.swift in Sources */,
 				144B97011FCF12AA00E935A0 /* CustomCell.swift in Sources */,
 				144B97061FD02A1400E935A0 /* HomeLabel.swift in Sources */,
