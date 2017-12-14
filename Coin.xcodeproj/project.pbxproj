@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140EC22F1FE1955D00406670 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140EC22D1FE1955D00406670 /* PortfolioCell.swift */; };
+		140EC2301FE1955D00406670 /* PortfolioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140EC22E1FE1955D00406670 /* PortfolioCell.xib */; };
+		140EC2321FE1BBE400406670 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140EC2311FE1BBE400406670 /* GlobalVariables.swift */; };
+		140EC2341FE1BF8800406670 /* UIViewController+Func.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140EC2331FE1BF8800406670 /* UIViewController+Func.swift */; };
 		1439CD2F1FE021AF0032E629 /* Double+WithSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439CD2E1FE021AF0032E629 /* Double+WithSeparator.swift */; };
-		144B97011FCF12AA00E935A0 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B96FF1FCF12AA00E935A0 /* CustomCell.swift */; };
-		144B97021FCF12AA00E935A0 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144B97001FCF12AA00E935A0 /* Cell.xib */; };
+		144B97011FCF12AA00E935A0 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B96FF1FCF12AA00E935A0 /* HomeCell.swift */; };
+		144B97021FCF12AA00E935A0 /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144B97001FCF12AA00E935A0 /* HomeCell.xib */; };
 		144B97061FD02A1400E935A0 /* HomeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B97051FD02A1400E935A0 /* HomeLabel.swift */; };
 		147448ED1FCC226400ABBED8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147448EC1FCC226400ABBED8 /* AppDelegate.swift */; };
 		147448EF1FCC226400ABBED8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147448EE1FCC226400ABBED8 /* HomeViewController.swift */; };
@@ -22,9 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		140EC22D1FE1955D00406670 /* PortfolioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCell.swift; sourceTree = "<group>"; };
+		140EC22E1FE1955D00406670 /* PortfolioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PortfolioCell.xib; sourceTree = "<group>"; };
+		140EC2311FE1BBE400406670 /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
+		140EC2331FE1BF8800406670 /* UIViewController+Func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Func.swift"; sourceTree = "<group>"; };
 		1439CD2E1FE021AF0032E629 /* Double+WithSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+WithSeparator.swift"; sourceTree = "<group>"; };
-		144B96FF1FCF12AA00E935A0 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
-		144B97001FCF12AA00E935A0 /* Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
+		144B96FF1FCF12AA00E935A0 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		144B97001FCF12AA00E935A0 /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
 		144B97051FD02A1400E935A0 /* HomeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLabel.swift; sourceTree = "<group>"; };
 		147448E91FCC226400ABBED8 /* Coin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		147448EC1FCC226400ABBED8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				1439CD2E1FE021AF0032E629 /* Double+WithSeparator.swift */,
+				140EC2331FE1BF8800406670 /* UIViewController+Func.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -83,6 +92,7 @@
 				147448EC1FCC226400ABBED8 /* AppDelegate.swift */,
 				147448EE1FCC226400ABBED8 /* HomeViewController.swift */,
 				147448F01FCC226400ABBED8 /* PortfolioViewController.swift */,
+				140EC2311FE1BBE400406670 /* GlobalVariables.swift */,
 				147449001FCC2B2D00ABBED8 /* AlertViewController.swift */,
 				144B96D61FCED87F00E935A0 /* Custom Cell */,
 			);
@@ -92,8 +102,10 @@
 		144B96D61FCED87F00E935A0 /* Custom Cell */ = {
 			isa = PBXGroup;
 			children = (
-				144B96FF1FCF12AA00E935A0 /* CustomCell.swift */,
-				144B97001FCF12AA00E935A0 /* Cell.xib */,
+				144B96FF1FCF12AA00E935A0 /* HomeCell.swift */,
+				140EC22D1FE1955D00406670 /* PortfolioCell.swift */,
+				140EC22E1FE1955D00406670 /* PortfolioCell.xib */,
+				144B97001FCF12AA00E935A0 /* HomeCell.xib */,
 			);
 			name = "Custom Cell";
 			sourceTree = "<group>";
@@ -208,7 +220,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				144B97021FCF12AA00E935A0 /* Cell.xib in Resources */,
+				140EC2301FE1955D00406670 /* PortfolioCell.xib in Resources */,
+				144B97021FCF12AA00E935A0 /* HomeCell.xib in Resources */,
 				147448F91FCC226400ABBED8 /* LaunchScreen.storyboard in Resources */,
 				147448F61FCC226400ABBED8 /* Assets.xcassets in Resources */,
 				147448F41FCC226400ABBED8 /* Main.storyboard in Resources */,
@@ -280,11 +293,14 @@
 			files = (
 				147448F11FCC226400ABBED8 /* PortfolioViewController.swift in Sources */,
 				1439CD2F1FE021AF0032E629 /* Double+WithSeparator.swift in Sources */,
+				140EC2341FE1BF8800406670 /* UIViewController+Func.swift in Sources */,
 				147448ED1FCC226400ABBED8 /* AppDelegate.swift in Sources */,
-				144B97011FCF12AA00E935A0 /* CustomCell.swift in Sources */,
+				140EC2321FE1BBE400406670 /* GlobalVariables.swift in Sources */,
+				144B97011FCF12AA00E935A0 /* HomeCell.swift in Sources */,
 				144B97061FD02A1400E935A0 /* HomeLabel.swift in Sources */,
 				147448EF1FCC226400ABBED8 /* HomeViewController.swift in Sources */,
 				147449011FCC2B2D00ABBED8 /* AlertViewController.swift in Sources */,
+				140EC22F1FE1955D00406670 /* PortfolioCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

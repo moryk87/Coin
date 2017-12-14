@@ -1,5 +1,5 @@
 //
-//  secondCell.swift
+//  SecondCell.swift
 //  Coin
 //
 //  Created by Jan Moravek on 13/12/2017.
@@ -8,8 +8,15 @@
 
 import UIKit
 
-class secondCell: UITableViewCell {
+class PortfolioCell: UITableViewCell {
 
+    @IBOutlet weak var coinNameCell: UILabel!
+    @IBOutlet weak var tickerCell: UILabel!
+    @IBOutlet weak var changeCell: UILabel!
+    @IBOutlet weak var priceCell: UILabel!
+    @IBOutlet weak var textCell: UITextField!
+    @IBOutlet weak var editCell: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

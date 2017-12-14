@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomCell: UITableViewCell {
+class HomeCell: UITableViewCell {
 
     @IBOutlet weak var coinNameCell: UILabel!
     @IBOutlet weak var tickerCell: UILabel!
