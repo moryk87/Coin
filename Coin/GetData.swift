@@ -10,12 +10,14 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-extension UITableViewDelegate {
+class GetData {
+    
+    var delegate: GetDataDelegate?
     
     //MARK: - Networking
     /***************************************************************/
     
-    func getData(url: String, number: Int) {
+    func downloadData(url: String, number: Int) {
         
         Alamofire.request(url, method: .get).responseJSON {
             response in
@@ -47,7 +49,7 @@ extension UITableViewDelegate {
         
         if let priceResult = json["last"].double {
             MyVariables.dataArray[number].priceCell = priceResult
-            print("priceCell: \(MyVariables.dataArray[number].priceCell)","\n")
+            print("priceCell: \(MyVariables.dataArray[number].priceCell)")
         } else {
             MyVariables.timeStamp = "Price Unavailable"
         }
@@ -58,9 +60,22 @@ extension UITableViewDelegate {
             MyVariables.timeStamp = "Time Unavailable"
         }
         
-        self.tableView.reloadData()
-        
-//        HomeViewController.refreshButtonPressed(_, sender: UIBarButtonItem)
+        self.delegate?.didFinishGetData(finished: true)
+    
+        print("bb","\n")
+    }
+    
+    //MARK: - storing Data
+    /***************************************************************/
+    
+    func storeData () {
+        for (n, _) in MyVariables.coinTickerArray.enumerated() {
+            
+            MyVariables.finalURL = MyVariables.baseURL+MyVariables.coinTickerArray[n]+MyVariables.currentCurency
+            downloadData(url: MyVariables.finalURL, number: n)
+            
+            print(n)
+        }
     }
     
     

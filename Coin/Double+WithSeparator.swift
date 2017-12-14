@@ -14,6 +14,7 @@ extension Double {
         formatter.groupingSeparator = "\u{2009}"
         formatter.numberStyle = .decimal
         formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
         return formatter.string(from: self as NSNumber)!
     }
 }
