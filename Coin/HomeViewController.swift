@@ -36,10 +36,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             MyVariables.dataArray.append(HomeLabel(coinNameCell: MyVariables.coinNameArray[n], tickerCell: MyVariables.coinTickerArray[n]))
         }
         
-        self.currencyControl.selectedSegmentIndex = MyVariables.currencyControlSelected
         print(MyVariables.currencyControlSelected)
         storeData()
 //        getData.storeData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.cellTableView.reloadData()
+        self.currencyControl.selectedSegmentIndex = MyVariables.currencyControlSelected
     }
     
     //MARK: - tableView

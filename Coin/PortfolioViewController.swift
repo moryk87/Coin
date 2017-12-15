@@ -30,6 +30,12 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
         
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.cellTableView.reloadData()
+        self.currencyControl.selectedSegmentIndex = MyVariables.currencyControlSelected
+    }
+    
     //MARK: - tableView
     /***************************************************************/
     
@@ -60,7 +66,14 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MyVariables.coinTickerArray.count
     }
-
+    
+    
+    //coinCell.textCell.
+    //[indexPath.row]
+    
+    
+    
+    
     //MARK: - IBAction
     /***************************************************************/
     

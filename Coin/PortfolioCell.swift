@@ -17,6 +17,9 @@ class PortfolioCell: UITableViewCell {
     @IBOutlet weak var textCell: UITextField!
     @IBOutlet weak var editCell: UIButton!
     
+    @IBAction func editCellPressed(_ sender: UIButton) {
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
