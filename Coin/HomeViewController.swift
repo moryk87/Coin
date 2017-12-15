@@ -36,9 +36,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             MyVariables.dataArray.append(HomeLabel(coinNameCell: MyVariables.coinNameArray[n], tickerCell: MyVariables.coinTickerArray[n]))
         }
         
+        self.currencyControl.selectedSegmentIndex = MyVariables.currencyControlSelected
+        print(MyVariables.currencyControlSelected)
         storeData()
 //        getData.storeData()
-        
     }
     
     //MARK: - tableView
@@ -152,19 +153,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         if sender.selectedSegmentIndex == 0 {
             MyVariables.currentCurency = "CZK"
+            MyVariables.currencyControlSelected = sender.selectedSegmentIndex
             print("CZK")
         } else if sender.selectedSegmentIndex == 1 {
             MyVariables.currentCurency = "USD"
+            MyVariables.currencyControlSelected = sender.selectedSegmentIndex
             print("USD")
         } else if sender.selectedSegmentIndex == 2 {
             MyVariables.currentCurency = "EUR"
+            MyVariables.currencyControlSelected = sender.selectedSegmentIndex
             print("EUR")
         }
         
         storeData()
-//        getData.storeData()
-        self.cellTableView.reloadData()
-        //        self.didFinishGetData(finished: true)
     }
     
 

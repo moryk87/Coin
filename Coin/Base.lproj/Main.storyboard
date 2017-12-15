@@ -274,11 +274,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cellTableView" destination="y6D-N1-TKT" id="SKw-Le-4fF"/>
-                        <outlet property="currencyControl" destination="Lfe-5H-ha0" id="3mr-06-F8C"/>
-                        <outlet property="currencyControll" destination="Lfe-5H-ha0" id="vV0-he-Yf8"/>
+                        <outlet property="currencyControl" destination="Lfe-5H-ha0" id="4wW-FS-QVK"/>
                         <outlet property="refreshButton" destination="9aM-p3-Jol" id="ufT-qh-yhj"/>
-                        <outlet property="timeStamp" destination="Aly-su-fI4" id="F8k-pp-YjT"/>
-                        <outlet property="timeStampLabel" destination="Aly-su-fI4" id="0ST-Be-CX9"/>
+                        <outlet property="timeStampLabel" destination="Aly-su-fI4" id="Qe6-Le-B9P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>

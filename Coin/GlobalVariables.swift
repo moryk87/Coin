@@ -23,4 +23,6 @@ struct MyVariables {
 //    static var coinNameArray = ["Bitcoin","Ethereum","Ripple","Dash","Litecoin","Monero","NEM"]
 //    static var coinTickerArray = ["BTC","ETH","XRP","DASH","LTC","XMR","XEM"]
     
+    static var currencyControlSelected = 1
+    
 }
