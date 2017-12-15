@@ -12,23 +12,13 @@ import SwiftyJSON
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let baseURL = "https://apiv2.bitcoinaverage.com/indices/global/ticker/"
-    var finalURL = ""
-    //"https://apiv2.bitcoinaverage.com/indices/global/ticker/all?crypto=BTC,ETH,LTC&fiat=USD,EUR,CZK"
-    let currencyShortcutArray = ["CZK", "USD", "EUR"]
-    var currentCurency = "USD"
-    
-    var coinNameArray = ["Bitcoin","Ethereum","Litecoin"]
-    var coinTickerArray = ["BTC","ETH","LTC"]
-    //var coinNameArray = ["Bitcoin","Ethereum","Ripple","Dash","Litecoin","Monero","NEM"]
-    //var coinTickerArray = ["BTC","ETH","XRP","DASH","LTC","XMR","XEM"]
-    
-    var dataArray = [HomeLabel] ()
+    let getData = GetData()
     
     //1
     @IBOutlet weak var cellTableView: UITableView!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
     @IBOutlet weak var timeStampLabel: UILabel!
+    @IBOutlet weak var currencyControl: UISegmentedControl!
     
     
     override func viewDidLoad() {
@@ -39,14 +29,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cellTableView.dataSource = self
         
         //4
-        cellTableView.register(UINib(nibName: "Cell", bundle: nil), forCellReuseIdentifier: "customCell")
+        cellTableView.register(UINib(nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "homeCell")
         
-        for (n, _) in coinTickerArray.enumerated() {
+        for (n, _) in MyVariables.coinTickerArray.enumerated() {
 //            print("\(n): '\(ticker)'")
-            dataArray.append(HomeLabel(coinNameCell: coinNameArray[n], tickerCell: coinTickerArray[n]))
+            MyVariables.dataArray.append(HomeLabel(coinNameCell: MyVariables.coinNameArray[n], tickerCell: MyVariables.coinTickerArray[n]))
         }
         
         storeData()
+//        getData.storeData()
         
     }
     
@@ -56,14 +47,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     //3
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let coinCell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomCell
+        let coinCell = tableView.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeCell
         
-        coinCell.coinNameCell.text = dataArray[indexPath.row].coinNameCell
-        coinCell.tickerCell.text = dataArray[indexPath.row].tickerCell
-        coinCell.changeCell.text = String(format: "%.2f", dataArray[indexPath.row].changeCell)+" %"
-        coinCell.priceCell.text = String(format: "%.2f", dataArray[indexPath.row].priceCell)
+        coinCell.coinNameCell.text = MyVariables.dataArray[indexPath.row].coinNameCell
+        coinCell.tickerCell.text = MyVariables.dataArray[indexPath.row].tickerCell
         
-        if dataArray[indexPath.row].changeCell >= 0 {
+        coinCell.changeCell.text = ((MyVariables.dataArray[indexPath.row].changeCell).withSeparator)+" %"
+        
+//        coinCell.priceCell.text = String(format: "%.2f", dataArray[indexPath.row].priceCell)
+
+        coinCell.priceCell.text = (MyVariables.dataArray[indexPath.row].priceCell).withSeparator
+
+        
+        if MyVariables.dataArray[indexPath.row].changeCell >= 0 {
             coinCell.changeCell.textColor = UIColor(red:0.00, green:0.63, blue:0.00, alpha:1.0)
         } else {
             coinCell.changeCell.textColor = UIColor(red:0.87, green:0.23, blue:0.23, alpha:1.0)
@@ -73,77 +69,103 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return coinTickerArray.count
+        return MyVariables.coinTickerArray.count
     }
     
     
     //MARK: - Networking
     /***************************************************************/
-    
-    func getData(url: String, number: Int) {
-        
+
+    func downloadData(url: String, number: Int) {
+
         Alamofire.request(url, method: .get).responseJSON {
             response in
             if response.result.isSuccess {
                 let dataJSON : JSON = JSON(response.result.value!)
-                
+
                 self.updateCoinData(json: dataJSON, number: number)
 
                 print(url)
-                print(dataJSON)
+//                print(dataJSON)
             } else {
                 print("Error \(String(describing: response.result.error))")
                 self.timeStampLabel.text = "Connection issues"
             }
         }
     }
-    
-    
+
+
     //MARK: - JSON Parsing
     /***************************************************************/
-    
+
     func updateCoinData(json: JSON, number: Int) {
 
         if let changeResult = json["changes"]["percent"]["day"].double {
-            dataArray[number].changeCell = changeResult
-            print("changeCell: \(dataArray[number].changeCell)")
+            MyVariables.dataArray[number].changeCell = changeResult
+            print("changeCell: \(MyVariables.dataArray[number].changeCell)")
         } else {
             timeStampLabel.text = "Change Unavailable"
         }
 
         if let priceResult = json["last"].double {
-            dataArray[number].priceCell = priceResult
-            print("priceCell: \(dataArray[number].priceCell)","\n")
+            MyVariables.dataArray[number].priceCell = priceResult
+            print("priceCell: \(MyVariables.dataArray[number].priceCell)","\n")
         } else {
             timeStampLabel.text = "Price Unavailable"
         }
 
         if let timeResult = json["display_timestamp"].string {
             timeStampLabel.text = timeResult
+            print(timeResult)
         } else {
             timeStampLabel.text = "Time Unavailable"
         }
-        
+
        self.cellTableView.reloadData()
     }
-
+    
     //MARK: - storing Data
     /***************************************************************/
     
     func storeData () {
-        for (n, _) in coinTickerArray.enumerated() {
+        for (n, _) in MyVariables.coinTickerArray.enumerated() {
             
-            finalURL = baseURL+coinTickerArray[n]+currentCurency
-            getData(url: finalURL, number: n)
+            MyVariables.finalURL = MyVariables.baseURL+MyVariables.coinTickerArray[n]+MyVariables.currentCurency
+            downloadData(url: MyVariables.finalURL, number: n)
+            
+            print(n)
         }
     }
+    
     
     //MARK: - IBAction
     /***************************************************************/
     
     @IBAction func refreshButtonPressed(_ sender: UIBarButtonItem) {
+        storeData()
+        print("refresh")
         self.cellTableView.reloadData()
+//        self.didFinishGetData(finished: true)
+    }
+
+    @IBAction func currencyControlPressed(_ sender: UISegmentedControl) {
+
+        if sender.selectedSegmentIndex == 0 {
+            MyVariables.currentCurency = "CZK"
+            print("CZK")
+        } else if sender.selectedSegmentIndex == 1 {
+            MyVariables.currentCurency = "USD"
+            print("USD")
+        } else if sender.selectedSegmentIndex == 2 {
+            MyVariables.currentCurency = "EUR"
+            print("EUR")
+        }
+        
+        storeData()
+//        getData.storeData()
+        self.cellTableView.reloadData()
+        //        self.didFinishGetData(finished: true)
     }
     
-}
 
+}

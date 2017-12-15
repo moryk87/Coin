@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,7 +35,7 @@
                                 </segments>
                                 <color key="tintColor" red="0.15294117647058825" green="0.69411764705882351" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="currencyControlPressed:" destination="9pv-A4-QxB" eventType="valueChanged" id="RCJ-Yj-ouA"/>
+                                    <action selector="currencyControlPressed:" destination="9pv-A4-QxB" eventType="valueChanged" id="gJf-Gu-edq"/>
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cfa-Hh-9aJ">
@@ -200,7 +200,7 @@
                                 </segments>
                                 <color key="tintColor" red="0.1529411765" green="0.69411764710000001" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="currencyControlPressed:" destination="9pv-A4-QxB" eventType="valueChanged" id="Nc0-Qt-BQS"/>
+                                    <action selector="currencyControlPressed:" destination="8rJ-Kc-sve" eventType="valueChanged" id="GUH-p8-g2R"/>
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="updated:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mO9-t2-qOK">
@@ -267,12 +267,17 @@
                     <navigationItem key="navigationItem" title="Coin Currency" id="nZO-7d-ULv">
                         <barButtonItem key="rightBarButtonItem" title="Refresh" id="9aM-p3-Jol">
                             <color key="tintColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="refreshButtonPressed:" destination="8rJ-Kc-sve" id="ScD-jp-p7l"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cellTableView" destination="y6D-N1-TKT" id="HhW-ae-b86"/>
+                        <outlet property="cellTableView" destination="y6D-N1-TKT" id="SKw-Le-4fF"/>
+                        <outlet property="currencyControl" destination="Lfe-5H-ha0" id="3mr-06-F8C"/>
                         <outlet property="currencyControll" destination="Lfe-5H-ha0" id="vV0-he-Yf8"/>
-                        <outlet property="refreshButton" destination="9aM-p3-Jol" id="dCJ-OM-TSb"/>
+                        <outlet property="refreshButton" destination="9aM-p3-Jol" id="ufT-qh-yhj"/>
+                        <outlet property="timeStamp" destination="Aly-su-fI4" id="F8k-pp-YjT"/>
                         <outlet property="timeStampLabel" destination="Aly-su-fI4" id="0ST-Be-CX9"/>
                     </connections>
                 </viewController>

@@ -9,6 +9,12 @@
 import UIKit
 
 class PortfolioViewController: UIViewController {
+    
+    @IBOutlet weak var cellTableView: UITableView!
+    @IBOutlet weak var refreshButton: UIBarButtonItem!
+    @IBOutlet weak var timeStamp: UILabel!
+    @IBOutlet weak var currencyControl: UISegmentedControl!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +26,12 @@ class PortfolioViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    
+    @IBAction func refreshButtonPressed(_ sender: UIBarButtonItem) {
+    }
+    
+    @IBAction func currencyControlPressed(_ sender: UISegmentedControl) {
+    }
+    
 }
 

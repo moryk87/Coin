@@ -26,12 +26,13 @@ extension HomeViewController: GetDataDelegate {
 //    }
 //}
 
-extension PortfolioViewController: GetDataDelegate {
-    func didFinishGetData(finished: Bool) {
-        guard finished else {
-            // Handle the unfinished state
-            return
-        }
-        self.cellTableView.reloadData()
-    }
-}
+//extension PortfolioViewController: GetDataDelegate {
+//    func didFinishGetData(finished: Bool) {
+//        guard finished else {
+//            // Handle the unfinished state
+//            return
+//        }
+//        self.cellTableView.reloadData()
+//    }
+//}
+
