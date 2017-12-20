@@ -15,16 +15,9 @@ extension HomeViewController: GetDataDelegate {
             return
         }
         self.cellTableView.reloadData()
+        self.timeStampLabel.text = MyVariables.timeStamp
     }
 }
-
-//extension HomeViewController: GetDataDelegate {
-//    func didFinishGetData(sender: GetData) {
-//        DispatchQueue.main.async {
-//            self.cellTableView.reloadData()
-//        }
-//    }
-//}
 
 extension PortfolioViewController: GetDataDelegate {
     func didFinishGetData(finished: Bool) {
@@ -33,6 +26,7 @@ extension PortfolioViewController: GetDataDelegate {
             return
         }
         self.cellTableView.reloadData()
+        self.timeStampLabel.text = MyVariables.timeStamp
     }
 }
 

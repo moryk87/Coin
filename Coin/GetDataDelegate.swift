@@ -11,3 +11,4 @@ import Foundation
 protocol GetDataDelegate {
     func didFinishGetData(finished: Bool)
 }
+

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PortfolioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PortfolioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, PortfolioCellDelegate {
     
     let getData = GetData()
     
@@ -28,12 +28,17 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
 
         self.currencyControl.selectedSegmentIndex = MyVariables.currencyControlSelected
         
+        getData.delegate = self
+        
+        timeStampLabel.text = MyVariables.timeStamp
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.cellTableView.reloadData()
         self.currencyControl.selectedSegmentIndex = MyVariables.currencyControlSelected
+        self.timeStampLabel.text = MyVariables.timeStamp
     }
     
     //MARK: - tableView
@@ -51,7 +56,7 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
         
         //        coinCell.priceCell.text = String(format: "%.2f", dataArray[indexPath.row].priceCell)
         
-        coinCell.priceCell.text = (MyVariables.dataArray[indexPath.row].priceCell).withSeparator
+        coinCell.priceCell.text = (MyVariables.dataArray[indexPath.row].priceCell*MyVariables.dataArray[indexPath.row].ownedCell).withSeparator
         
         
         if MyVariables.dataArray[indexPath.row].changeCell >= 0 {
@@ -60,6 +65,8 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
             coinCell.changeCell.textColor = UIColor(red:0.87, green:0.23, blue:0.23, alpha:1.0)
         }
         
+        coinCell.delegate = self
+        
         return coinCell
     }
     
@@ -67,9 +74,99 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
         return MyVariables.coinTickerArray.count
     }
     
+//
+//
     
-    //coinCell.textCell.
-    //[indexPath.row]
+    
+    func portfolioButtonPressed(coinCell: PortfolioCell) {
+        let indexPath = self.cellTableView.indexPathForRow(at: coinCell.center)!
+        let selectedCell = cellTableView.cellForRow(at: indexPath) as! PortfolioCell
+
+        selectedCell.priceCell.isHidden = true
+        selectedCell.textCell.isHidden = false
+        
+        selectedCell.textCell.delegate = self
+        
+        print(indexPath.row)
+//        print("coinCell: \(coinCell)")
+//        print("coinCell.cente: \(coinCell.center)")
+        
+        
+        func textFieldDidEndEditing(textField: UITextField) {
+            print(String(describing: textField.text))
+            let owned: Double = Double(textField.text!)!
+            
+            if owned >= 0 {
+                MyVariables.dataArray[indexPath.row].ownedCell = owned
+                print(MyVariables.dataArray[indexPath.row].ownedCell)
+                print(MyVariables.dataArray[indexPath.row])
+            } else {
+                MyVariables.dataArray[indexPath.row].ownedCell = 0.00
+            }
+            
+            selectedCell.priceCell.isHidden = false
+            selectedCell.textCell.isHidden = true
+            
+            self.cellTableView.reloadData()
+        }
+        
+        func textFieldShouldReturn(textField: UITextField) -> Bool {
+            selectedCell.textCell.resignFirstResponder()
+            print("return")
+            return true
+        }
+    }
+    
+    
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+////        let indexPath = self.cellTableView.indexPathForRow(at: indexPath)!
+//        let selectedCell = cellTableView.cellForRow(at: indexPath) as! PortfolioCell
+//        print("selected")
+//        print(indexPath.row)
+//        print(" ")
+//
+//        selectedCell.priceCell.isHidden = true
+//        selectedCell.textCell.isHidden = false
+//
+//        selectedCell.textCell.delegate = self
+//        //selectedCell.textCell.keyboardType = UIKeyboardType.decimalPad
+//
+////        func textFieldShouldReturn(textField: UITextField) -> Bool {
+////            selectedCell.textCell.resignFirstResponder()
+////            print("return")
+////            return true
+////        }
+//
+//
+//
+//    }
+
+//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+//        let selectedCell = cellTableView.cellForRow(at: indexPath) as! PortfolioCell
+//        print("deslected")
+//        print(indexPath.row)
+//
+//        selectedCell.priceCell.isHidden = false
+//        selectedCell.textCell.isHidden = true
+//
+//        self.cellTableView.reloadData()
+//    }
+//
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        print("return")
+//        return true
+//    }
+//
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        let editAction = UITableViewRowAction(style: .default,title: "Edit") {
+//            (action, index) in
+//            print("edit")
+//        }
+//
+//        return [editAction]
+//    }
     
     
     

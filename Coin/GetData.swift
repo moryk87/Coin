@@ -56,6 +56,7 @@ class GetData {
         
         if let timeResult = json["display_timestamp"].string {
             MyVariables.timeStamp = timeResult
+            print("timeResult: \(MyVariables.timeStamp)")
         } else {
             MyVariables.timeStamp = "Time Unavailable"
         }

@@ -36,9 +36,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             MyVariables.dataArray.append(HomeLabel(coinNameCell: MyVariables.coinNameArray[n], tickerCell: MyVariables.coinTickerArray[n]))
         }
         
+        getData.delegate = self
+        
         print(MyVariables.currencyControlSelected)
-        storeData()
-//        getData.storeData()
+//        storeData()
+        getData.storeData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -79,76 +81,76 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    //MARK: - Networking
-    /***************************************************************/
-
-    func downloadData(url: String, number: Int) {
-
-        Alamofire.request(url, method: .get).responseJSON {
-            response in
-            if response.result.isSuccess {
-                let dataJSON : JSON = JSON(response.result.value!)
-
-                self.updateCoinData(json: dataJSON, number: number)
-
-                print(url)
-//                print(dataJSON)
-            } else {
-                print("Error \(String(describing: response.result.error))")
-                self.timeStampLabel.text = "Connection issues"
-            }
-        }
-    }
-
-
-    //MARK: - JSON Parsing
-    /***************************************************************/
-
-    func updateCoinData(json: JSON, number: Int) {
-
-        if let changeResult = json["changes"]["percent"]["day"].double {
-            MyVariables.dataArray[number].changeCell = changeResult
-            print("changeCell: \(MyVariables.dataArray[number].changeCell)")
-        } else {
-            timeStampLabel.text = "Change Unavailable"
-        }
-
-        if let priceResult = json["last"].double {
-            MyVariables.dataArray[number].priceCell = priceResult
-            print("priceCell: \(MyVariables.dataArray[number].priceCell)","\n")
-        } else {
-            timeStampLabel.text = "Price Unavailable"
-        }
-
-        if let timeResult = json["display_timestamp"].string {
-            timeStampLabel.text = timeResult
-            print(timeResult)
-        } else {
-            timeStampLabel.text = "Time Unavailable"
-        }
-
-       self.cellTableView.reloadData()
-    }
-    
-    //MARK: - storing Data
-    /***************************************************************/
-    
-    func storeData () {
-        for (n, _) in MyVariables.coinTickerArray.enumerated() {
-            
-            MyVariables.finalURL = MyVariables.baseURL+MyVariables.coinTickerArray[n]+MyVariables.currentCurency
-            downloadData(url: MyVariables.finalURL, number: n)
-            
-            print(n)
-        }
-    }
+//    //MARK: - Networking
+//    /***************************************************************/
+//
+//    func downloadData(url: String, number: Int) {
+//
+//        Alamofire.request(url, method: .get).responseJSON {
+//            response in
+//            if response.result.isSuccess {
+//                let dataJSON : JSON = JSON(response.result.value!)
+//
+//                self.updateCoinData(json: dataJSON, number: number)
+//
+//                print(url)
+////                print(dataJSON)
+//            } else {
+//                print("Error \(String(describing: response.result.error))")
+//                self.timeStampLabel.text = "Connection issues"
+//            }
+//        }
+//    }
+//
+//
+//    //MARK: - JSON Parsing
+//    /***************************************************************/
+//
+//    func updateCoinData(json: JSON, number: Int) {
+//
+//        if let changeResult = json["changes"]["percent"]["day"].double {
+//            MyVariables.dataArray[number].changeCell = changeResult
+//            print("changeCell: \(MyVariables.dataArray[number].changeCell)")
+//        } else {
+//            timeStampLabel.text = "Change Unavailable"
+//        }
+//
+//        if let priceResult = json["last"].double {
+//            MyVariables.dataArray[number].priceCell = priceResult
+//            print("priceCell: \(MyVariables.dataArray[number].priceCell)","\n")
+//        } else {
+//            timeStampLabel.text = "Price Unavailable"
+//        }
+//
+//        if let timeResult = json["display_timestamp"].string {
+//            timeStampLabel.text = timeResult
+//            print(timeResult)
+//        } else {
+//            timeStampLabel.text = "Time Unavailable"
+//        }
+//
+//       self.cellTableView.reloadData()
+//    }
+//    
+//    //MARK: - storing Data
+//    /***************************************************************/
+//    
+//    func storeData () {
+//        for (n, _) in MyVariables.coinTickerArray.enumerated() {
+//            
+//            MyVariables.finalURL = MyVariables.baseURL+MyVariables.coinTickerArray[n]+MyVariables.currentCurency
+//            downloadData(url: MyVariables.finalURL, number: n)
+//            
+//            print(n)
+//        }
+//    }
     
     
     //MARK: - IBAction
     /***************************************************************/
     
     @IBAction func refreshButtonPressed(_ sender: UIBarButtonItem) {
-        storeData()
+        getData.storeData()
         print("refresh")
         self.cellTableView.reloadData()
 //        self.didFinishGetData(finished: true)
@@ -170,7 +172,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             print("EUR")
         }
         
-        storeData()
+        getData.storeData()
     }
     
 
