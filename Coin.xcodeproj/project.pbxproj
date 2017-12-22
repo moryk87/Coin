@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14079B391FE2C1F300B6296A /* GetDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14079B381FE2C1F300B6296A /* GetDataDelegate.swift */; };
 		14079B3B1FE2CB7000B6296A /* View+GetDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14079B3A1FE2CB7000B6296A /* View+GetDataDelegate.swift */; };
 		140EC22F1FE1955D00406670 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140EC22D1FE1955D00406670 /* PortfolioCell.swift */; };
 		140EC2301FE1955D00406670 /* PortfolioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140EC22E1FE1955D00406670 /* PortfolioCell.xib */; };
@@ -28,7 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		14079B381FE2C1F300B6296A /* GetDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataDelegate.swift; sourceTree = "<group>"; };
 		14079B3A1FE2CB7000B6296A /* View+GetDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+GetDataDelegate.swift"; sourceTree = "<group>"; };
 		140EC22D1FE1955D00406670 /* PortfolioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCell.swift; sourceTree = "<group>"; };
 		140EC22E1FE1955D00406670 /* PortfolioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PortfolioCell.xib; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				140EC2331FE1BF8800406670 /* GetData.swift */,
-				14079B381FE2C1F300B6296A /* GetDataDelegate.swift */,
 				147448EC1FCC226400ABBED8 /* AppDelegate.swift */,
 				147448EE1FCC226400ABBED8 /* HomeViewController.swift */,
 				147448F01FCC226400ABBED8 /* PortfolioViewController.swift */,
@@ -300,7 +297,6 @@
 				147448F11FCC226400ABBED8 /* PortfolioViewController.swift in Sources */,
 				1439CD2F1FE021AF0032E629 /* Double+WithSeparator.swift in Sources */,
 				140EC2341FE1BF8800406670 /* GetData.swift in Sources */,
-				14079B391FE2C1F300B6296A /* GetDataDelegate.swift in Sources */,
 				147448ED1FCC226400ABBED8 /* AppDelegate.swift in Sources */,
 				140EC2321FE1BBE400406670 /* MyVariables.swift in Sources */,
 				144B97011FCF12AA00E935A0 /* HomeCell.swift in Sources */,

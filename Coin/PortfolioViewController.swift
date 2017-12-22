@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PortfolioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, PortfolioCellDelegate {
+class PortfolioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PortfolioCellDelegate {
     
     let getData = GetData()
     
@@ -19,7 +19,7 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
     
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()        
         
         cellTableView.delegate = self
         cellTableView.dataSource = self
@@ -32,6 +32,26 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
         
         timeStampLabel.text = MyVariables.timeStamp
         
+    //}
+        
+
+//        //init toolbar
+//        let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: self.view.frame.size.width, height: 30))
+//        
+//        //create left side empty space so that done button set on right side
+//        let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
+//        let doneButton: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: Selector("doneButtonAction"))
+//        
+//        toolbar.setItems([flexSpace, doneButton], animated: false)
+//        toolbar.sizeToFit()
+//        
+//        //setting toolbar as inputAccessoryView
+//        self.selectedCell.textCell.inputAccessoryView = toolbar
+//
+//    }
+//    
+//    func doneButtonAction() {
+//        self.view.endEditing(true)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -78,44 +98,88 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
 //
     
     
-    func portfolioButtonPressed(coinCell: PortfolioCell) {
+    func portfolioButtonPressed(coinCell: PortfolioCell, editingChangedInTextCell newValue: String) {
+        let indexPath = self.cellTableView.indexPathForRow(at: coinCell.center)!
+        let selectedCell = cellTableView.cellForRow(at: indexPath) as! PortfolioCell
+        
+        selectedCell.priceCell.isHidden = false
+        selectedCell.textCell.isHidden = true
+        
+//        selectedCell.textCell.delegate = self
+        
+        print("editingChangedInTextField: \"\(newValue)\" in cell: \(indexPath.row)")
+        
+        if newValue != "XXX" {
+            let owned: Double = Double(newValue)!
+            MyVariables.dataArray[indexPath.row].ownedCell = owned
+        }
+
+        
+        
+//            if owned >= 0 {
+//                MyVariables.dataArray[indexPath.row].ownedCell = owned
+//            } else {
+//                MyVariables.dataArray[indexPath.row].ownedCell = 0.00
+//            }
+        
+//            func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//                selectedCell.textCell.resignFirstResponder()
+//                print("return textFieldShouldReturn")
+//                return true
+//            }
+        
+        selectedCell.priceCell.isHidden = false
+        selectedCell.textCell.isHidden = true
+
+//        self.cellTableView.reloadData()
+        self.cellTableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
+    func portfolioButtonPressed(didSelect coinCell: PortfolioCell) {
         let indexPath = self.cellTableView.indexPathForRow(at: coinCell.center)!
         let selectedCell = cellTableView.cellForRow(at: indexPath) as! PortfolioCell
 
         selectedCell.priceCell.isHidden = true
         selectedCell.textCell.isHidden = false
-        
-        selectedCell.textCell.delegate = self
+//        selectedCell.textCell.keyboardType = UIKeyboardType.decimalPad
         
         print(indexPath.row)
+        
+        
 //        print("coinCell: \(coinCell)")
 //        print("coinCell.cente: \(coinCell.center)")
         
+//        func textFieldShouldBeginEditing(textField: UITextField) {
+//            print("textFieldShouldBeginEditing")
+//            selectedCell.textCell.becomeFirstResponder()
+//        }
+//
+//        func textFieldShouldEndEditing(textField: UITextField)  -> Bool {
+//            print("textFieldShouldEndEditing")
+//            selectedCell.textCell.resignFirstResponder()
+//            return true
         
-        func textFieldDidEndEditing(textField: UITextField) {
-            print(String(describing: textField.text))
-            let owned: Double = Double(textField.text!)!
-            
-            if owned >= 0 {
-                MyVariables.dataArray[indexPath.row].ownedCell = owned
-                print(MyVariables.dataArray[indexPath.row].ownedCell)
-                print(MyVariables.dataArray[indexPath.row])
-            } else {
-                MyVariables.dataArray[indexPath.row].ownedCell = 0.00
-            }
-            
-            selectedCell.priceCell.isHidden = false
-            selectedCell.textCell.isHidden = true
-            
-            self.cellTableView.reloadData()
         }
-        
-        func textFieldShouldReturn(textField: UITextField) -> Bool {
-            selectedCell.textCell.resignFirstResponder()
-            print("return")
-            return true
-        }
-    }
+//        func textFieldDidBeginEditing(textField: UITextField) {
+//            selectedCell.textCell.becomeFirstResponder()
+//            print("textFieldDidBeginEditing")
+//        }
+//
+//        func textFieldDidEndEditing(textField: UITextField) {
+//            print(String(describing: textField.text))
+//
+//        }
+//
+//        func textFieldShouldReturn(textField: UITextField) -> Bool {
+//            selectedCell.textCell.resignFirstResponder()
+//            print("return textFieldShouldReturn")
+//            return true
+//        }
+//
+//        func textFieldShouldEndEditing(textField: UITextField) {
+//            selectedCell.textCell.resignFirstResponder()
+//            print("return textFieldShouldEndEditing")
+//        }
     
     
     

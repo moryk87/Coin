@@ -17,11 +17,11 @@ struct MyVariables {
     static let baseURL = "https://apiv2.bitcoinaverage.com/indices/global/ticker/"
 //    "https://apiv2.bitcoinaverage.com/indices/global/ticker/all?crypto=BTC,ETH,LTC&fiat=USD,EUR,CZK"
     static let currencyShortcutArray = ["CZK", "USD", "EUR"]
-    static var coinNameArray = ["Bitcoin","Ethereum","Litecoin"]
-    static var coinTickerArray = ["BTC","ETH","LTC"]
+//    static var coinNameArray = ["Bitcoin","Ethereum","Litecoin"]
+//    static var coinTickerArray = ["BTC","ETH","LTC"]
     
-//    static var coinNameArray = ["Bitcoin","Ethereum","Ripple","Dash","Litecoin","Monero","NEM"]
-//    static var coinTickerArray = ["BTC","ETH","XRP","DASH","LTC","XMR","XEM"]
+    static var coinNameArray = ["Bitcoin","Ethereum","Ripple","Litecoin","Monero","Zcash"]
+    static var coinTickerArray = ["BTC","ETH","XRP","LTC","XMR","ZEC"]
     
     static var currencyControlSelected = 1
     

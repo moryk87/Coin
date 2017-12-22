@@ -10,6 +10,10 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+protocol GetDataDelegate {
+    func didFinishGetData(finished: Bool)
+}
+
 class GetData {
     
     var delegate: GetDataDelegate?
