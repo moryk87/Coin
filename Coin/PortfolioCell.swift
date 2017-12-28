@@ -39,33 +39,29 @@ class PortfolioCell: UITableViewCell, UITextFieldDelegate  {
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textCell.resignFirstResponder()
-        print("return textFieldShouldReturn")
-        return true
-    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textCell.resignFirstResponder()
+//        print("return textFieldShouldReturn")
+//        return true
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        textCell.delegate = self
+        self.textCell.delegate = self
         
         let flexiableSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(self.doneButtonAction))
-        
-//        let toolBar = UIToolbar()
-//        let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: self.view.frame.size.width, height: 30))
-        let toolBar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 300, height: 28))
-//        toolBar.frame(CGRect(x: 0, y: 0, height: 30))
-//        toolBar.tintColor
-//        toolBar.sizeToFit()
-        toolBar.isTranslucent = true
+        let toolBar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: 35))
+
+        toolBar.barTintColor = UIColor(red:0.15, green:0.69, blue:0.75, alpha:1.0)
+        toolBar.tintColor = UIColor(red:0.93, green:0.93, blue:0.93, alpha:1.0)
         toolBar.setItems([flexiableSpace, doneButton], animated: false)
-        
+
         textCell.inputAccessoryView = toolBar
         textCell.keyboardType = UIKeyboardType.decimalPad
     }
-    
+
     @objc func doneButtonAction() {
         textCell.endEditing(true)
     }

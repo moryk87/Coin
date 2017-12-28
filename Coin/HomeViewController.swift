@@ -66,7 +66,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         coinCell.priceCell.text = (MyVariables.dataArray[indexPath.row].priceCell).withSeparator
 
-        
         if MyVariables.dataArray[indexPath.row].changeCell >= 0 {
             coinCell.changeCell.textColor = UIColor(red:0.00, green:0.63, blue:0.00, alpha:1.0)
         } else {

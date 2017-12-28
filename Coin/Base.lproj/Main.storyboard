@@ -24,9 +24,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="U8F-4b-rOj">
-                                <rect key="frame" x="10" y="74" width="355" height="29"/>
+                                <rect key="frame" x="10" y="74" width="355" height="26"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="hIl-Me-dxy"/>
+                                    <constraint firstAttribute="height" constant="25" id="hIl-Me-dxy"/>
                                 </constraints>
                                 <segments>
                                     <segment title="CZK"/>
@@ -39,7 +39,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cfa-Hh-9aJ">
-                                <rect key="frame" x="10" y="112" width="355" height="486"/>
+                                <rect key="frame" x="10" y="109" width="355" height="489"/>
                                 <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.98039215686274506" green="0.80000000000000004" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -171,7 +171,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y6D-N1-TKT">
-                                <rect key="frame" x="10" y="112" width="355" height="486"/>
+                                <rect key="frame" x="10" y="109" width="355" height="489"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.98039215690000003" green="0.80000000000000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -188,10 +188,9 @@
                                 </prototypes>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Lfe-5H-ha0">
-                                <rect key="frame" x="10" y="74" width="355" height="29"/>
+                                <rect key="frame" x="10" y="74" width="355" height="26"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="59B-K4-YSS"/>
-                                    <constraint firstAttribute="height" constant="28" id="H0d-lA-lqm"/>
+                                    <constraint firstAttribute="height" constant="25" id="H0d-lA-lqm"/>
                                 </constraints>
                                 <segments>
                                     <segment title="CZK"/>
