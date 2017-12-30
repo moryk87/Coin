@@ -25,4 +25,6 @@ struct MyVariables {
     
     static var currencyControlSelected = 1
     
+    static var ownedArray = [0, 0, 0, 0, 0, 0]
+    
 }

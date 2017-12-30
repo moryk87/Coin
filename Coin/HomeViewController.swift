@@ -31,16 +31,30 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //4
         cellTableView.register(UINib(nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "homeCell")
         
-        for (n, _) in MyVariables.coinTickerArray.enumerated() {
-//            print("\(n): '\(ticker)'")
-            MyVariables.dataArray.append(HomeLabel(coinNameCell: MyVariables.coinNameArray[n], tickerCell: MyVariables.coinTickerArray[n]))
+        
+        let myLoadedArray = UserDefaults.standard.array(forKey: "SavedDoubleArray") as? [Double] ?? []
+        print("myLoadedArray: \(myLoadedArray)")
+
+        if myLoadedArray .isEmpty {
+            for (n, _) in MyVariables.coinTickerArray.enumerated() {
+
+                MyVariables.dataArray.append(HomeLabel(coinNameCell: MyVariables.coinNameArray[n], tickerCell: MyVariables.coinTickerArray[n], ownedCell: Double(MyVariables.ownedArray[n])))
+            }
+        } else {
+            for (n, _) in MyVariables.coinTickerArray.enumerated() {
+
+                MyVariables.dataArray.append(HomeLabel(coinNameCell: MyVariables.coinNameArray[n], tickerCell: MyVariables.coinTickerArray[n], ownedCell: myLoadedArray[n]))
+            }
         }
+        
+        
         
         getData.delegate = self
         
         print(MyVariables.currencyControlSelected)
 //        storeData()
         getData.storeData()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -12,6 +12,8 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
     
     let getData = GetData()
     
+    
+    
     @IBOutlet weak var cellTableView: UITableView!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
     @IBOutlet weak var timeStampLabel: UILabel!
@@ -59,12 +61,13 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
         self.cellTableView.reloadData()
         self.currencyControl.selectedSegmentIndex = MyVariables.currencyControlSelected
         self.timeStampLabel.text = MyVariables.timeStamp
+        
+        savesArray()
     }
     
     //MARK: - tableView
     /***************************************************************/
     
-    //3
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let coinCell = tableView.dequeueReusableCell(withIdentifier: "portfolioCell", for: indexPath) as! PortfolioCell
@@ -75,9 +78,8 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
         coinCell.changeCell.text = ((MyVariables.dataArray[indexPath.row].changeCell).withSeparator)+" %"
         
         //        coinCell.priceCell.text = String(format: "%.2f", dataArray[indexPath.row].priceCell)
-        
-        coinCell.priceCell.text = (MyVariables.dataArray[indexPath.row].priceCell*MyVariables.dataArray[indexPath.row].ownedCell).withSeparator
-        
+       
+         coinCell.priceCell.text = (MyVariables.dataArray[indexPath.row].priceCell*MyVariables.dataArray[indexPath.row].ownedCell).withSeparator
         
         if MyVariables.dataArray[indexPath.row].changeCell >= 0 {
             coinCell.changeCell.textColor = UIColor(red:0.00, green:0.63, blue:0.00, alpha:1.0)
@@ -98,6 +100,36 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
 //
     
     
+    func savesArray() {
+
+        let defaults = UserDefaults.standard
+        defaults.set(MyVariables.ownedArray, forKey: "SavedDoubleArray")
+        print("SavedDoubleArray")
+        print(MyVariables.ownedArray)
+
+    }
+    
+    
+//    if let temp = UserDefaults.standardUserDefaults.objectForKey("myArray") as? [Int] {
+//        myArray = temp
+//    }
+//
+//
+//    if let myLoadedArray = UserDefaults.standard.array(forKey: "myArray") as? [Int] {
+//        print(myLoadedArray)
+//    }
+    
+//    Or use the nil coalescing operator ??:
+    
+//    let myLoadedArray = UserDefaults.standard.array(forKey: "SavedIntArray") as? [Int] ?? []
+//
+//    let LoadedArray : [Int] = UserDefaults.standard.array(forKey: "SavedIntArray") as! [Int]
+    
+    
+    //MARK: - editing
+    /***************************************************************/
+    
+    
     func portfolioButtonPressed(coinCell: PortfolioCell, editingChangedInTextCell newValue: String) {
         let indexPath = self.cellTableView.indexPathForRow(at: coinCell.center)!
         let selectedCell = cellTableView.cellForRow(at: indexPath) as! PortfolioCell
@@ -112,6 +144,9 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
         if newValue != "XXX" {
             let owned: Double = Double(newValue)!
             MyVariables.dataArray[indexPath.row].ownedCell = owned
+            MyVariables.ownedArray[indexPath.row] = Int(newValue)!
+            
+            savesArray()
         }
 
         
