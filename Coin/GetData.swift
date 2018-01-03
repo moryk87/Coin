@@ -67,7 +67,7 @@ class GetData {
         
         self.delegate?.didFinishGetData(finished: true)
     
-        print("bb","\n")
+        print("\n")
     }
     
     //MARK: - storing Data
@@ -77,11 +77,11 @@ class GetData {
         for (n, _) in MyVariables.coinTickerArray.enumerated() {
             
             MyVariables.finalURL = MyVariables.baseURL+MyVariables.coinTickerArray[n]+MyVariables.currentCurency
+            
             downloadData(url: MyVariables.finalURL, number: n)
             
             print(n)
         }
     }
-    
     
 }

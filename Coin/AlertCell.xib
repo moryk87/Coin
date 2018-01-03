@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alertCell" id="KGk-i7-Jjw" userLabel="alertCell" customClass="AlertCell" customModule="Coin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="39.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ethereum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfk-CJ-pNG">
+                        <rect key="frame" x="0.0" y="0.0" width="90" height="39.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="6oe-UA-Ntv"/>
+                            <constraint firstAttribute="width" constant="90" id="TTX-v3-cgO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" red="0.1529411765" green="0.69411764710000001" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2000.22" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cp-yZ-g8Z">
+                        <rect key="frame" x="130" y="0.0" width="146" height="39.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lT0-jr-ozx">
+                        <rect key="frame" x="90" y="11" width="40" height="21.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="a0d-OW-z4k"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="snB-gd-HpI"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqs-ZL-Szx">
+                        <rect key="frame" x="281" y="10.5" width="19" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="19" id="Ki4-p7-rpw"/>
+                            <constraint firstAttribute="width" constant="19" id="c3r-DE-Q6o"/>
+                        </constraints>
+                        <state key="normal" image="005-draw"/>
+                        <connections>
+                            <action selector="editCellPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jhS-b4-AwO"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="nfk-CJ-pNG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="0LF-H3-oi3"/>
+                    <constraint firstAttribute="bottom" secondItem="lT0-jr-ozx" secondAttribute="bottom" constant="7" id="5QL-Hv-qOr"/>
+                    <constraint firstItem="lT0-jr-ozx" firstAttribute="leading" secondItem="nfk-CJ-pNG" secondAttribute="trailing" id="9U1-yP-q7F"/>
+                    <constraint firstAttribute="trailing" secondItem="gqs-ZL-Szx" secondAttribute="trailing" id="CK4-PW-1WJ"/>
+                    <constraint firstItem="lT0-jr-ozx" firstAttribute="leading" secondItem="nfk-CJ-pNG" secondAttribute="trailing" id="KDj-Vm-PVC"/>
+                    <constraint firstItem="6cp-yZ-g8Z" firstAttribute="leading" secondItem="lT0-jr-ozx" secondAttribute="trailing" id="YvB-d7-PQp"/>
+                    <constraint firstAttribute="bottom" secondItem="nfk-CJ-pNG" secondAttribute="bottom" id="bqf-TY-PHH"/>
+                    <constraint firstAttribute="bottom" secondItem="6cp-yZ-g8Z" secondAttribute="bottom" id="d2K-it-HHl"/>
+                    <constraint firstItem="lT0-jr-ozx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="gvx-No-RJ0"/>
+                    <constraint firstItem="nfk-CJ-pNG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jrm-ZC-0cU"/>
+                    <constraint firstItem="6cp-yZ-g8Z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="q60-7W-iDd"/>
+                    <constraint firstItem="gqs-ZL-Szx" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="vdu-ol-ZYh"/>
+                    <constraint firstItem="gqs-ZL-Szx" firstAttribute="leading" secondItem="6cp-yZ-g8Z" secondAttribute="trailing" constant="5" id="x5d-10-ntg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="coinNameCell" destination="nfk-CJ-pNG" id="VNh-iz-buS"/>
+                <outlet property="editCell" destination="gqs-ZL-Szx" id="naB-Dm-XCk"/>
+                <outlet property="textCell" destination="6cp-yZ-g8Z" id="XrU-Nz-Shq"/>
+                <outlet property="tickerCell" destination="lT0-jr-ozx" id="ZVZ-SO-PtU"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="005-draw" width="56" height="56"/>
+    </resources>
+</document>

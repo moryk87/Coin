@@ -23,6 +23,11 @@
 		147448F61FCC226400ABBED8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 147448F51FCC226400ABBED8 /* Assets.xcassets */; };
 		147448F91FCC226400ABBED8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 147448F71FCC226400ABBED8 /* LaunchScreen.storyboard */; };
 		147449011FCC2B2D00ABBED8 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147449001FCC2B2D00ABBED8 /* AlertViewController.swift */; };
+		14E34E431FF815DE00869373 /* AlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E34E411FF815DE00869373 /* AlertCell.swift */; };
+		14E34E441FF815DE00869373 /* AlertCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E34E421FF815DE00869373 /* AlertCell.xib */; };
+		14E34E461FFD1B1900869373 /* CurrencySwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E34E451FFD1B1900869373 /* CurrencySwitcher.swift */; };
+		14E34E481FFD2BEB00869373 /* AddAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E34E471FFD2BEB00869373 /* AddAlertViewController.swift */; };
+		14E34E4A1FFD2CCE00869373 /* EditAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E34E491FFD2CCE00869373 /* EditAlertViewController.swift */; };
 		48FD99D191D82E453CC7796D /* Pods_Coin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B20724C4C516D587A0A7CB /* Pods_Coin.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +50,11 @@
 		147448F81FCC226400ABBED8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		147448FA1FCC226400ABBED8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		147449001FCC2B2D00ABBED8 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		14E34E411FF815DE00869373 /* AlertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCell.swift; sourceTree = "<group>"; };
+		14E34E421FF815DE00869373 /* AlertCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertCell.xib; sourceTree = "<group>"; };
+		14E34E451FFD1B1900869373 /* CurrencySwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySwitcher.swift; sourceTree = "<group>"; };
+		14E34E471FFD2BEB00869373 /* AddAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlertViewController.swift; sourceTree = "<group>"; };
+		14E34E491FFD2CCE00869373 /* EditAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlertViewController.swift; sourceTree = "<group>"; };
 		74B20724C4C516D587A0A7CB /* Pods_Coin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC8E6B05A95D76BBA260FF8E /* Pods-Coin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coin/Pods-Coin.debug.xcconfig"; sourceTree = "<group>"; };
 		ED16C3E1D0F6C1706BFB0D03 /* Pods-Coin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coin/Pods-Coin.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,13 +72,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		140EC21E1FE1846100406670 /* Extensions */ = {
+		140EC21E1FE1846100406670 /* Extensions + Others */ = {
 			isa = PBXGroup;
 			children = (
+				147448EC1FCC226400ABBED8 /* AppDelegate.swift */,
+				14E34E451FFD1B1900869373 /* CurrencySwitcher.swift */,
+				140EC2331FE1BF8800406670 /* GetData.swift */,
+				140EC2311FE1BBE400406670 /* MyVariables.swift */,
 				1439CD2E1FE021AF0032E629 /* Double+WithSeparator.swift */,
 				14079B3A1FE2CB7000B6296A /* View+GetDataDelegate.swift */,
 			);
-			name = Extensions;
+			name = "Extensions + Others";
 			sourceTree = "<group>";
 		};
 		144B96CF1FCED55300E935A0 /* Model */ = {
@@ -91,12 +105,12 @@
 		144B96D11FCED57100E935A0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				140EC2331FE1BF8800406670 /* GetData.swift */,
-				147448EC1FCC226400ABBED8 /* AppDelegate.swift */,
+				140EC21E1FE1846100406670 /* Extensions + Others */,
 				147448EE1FCC226400ABBED8 /* HomeViewController.swift */,
 				147448F01FCC226400ABBED8 /* PortfolioViewController.swift */,
-				140EC2311FE1BBE400406670 /* MyVariables.swift */,
 				147449001FCC2B2D00ABBED8 /* AlertViewController.swift */,
+				14E34E471FFD2BEB00869373 /* AddAlertViewController.swift */,
+				14E34E491FFD2CCE00869373 /* EditAlertViewController.swift */,
 				144B96D61FCED87F00E935A0 /* Custom Cell */,
 			);
 			name = Controller;
@@ -107,8 +121,10 @@
 			children = (
 				144B96FF1FCF12AA00E935A0 /* HomeCell.swift */,
 				140EC22D1FE1955D00406670 /* PortfolioCell.swift */,
-				140EC22E1FE1955D00406670 /* PortfolioCell.xib */,
+				14E34E411FF815DE00869373 /* AlertCell.swift */,
+				14E34E421FF815DE00869373 /* AlertCell.xib */,
 				144B97001FCF12AA00E935A0 /* HomeCell.xib */,
+				140EC22E1FE1955D00406670 /* PortfolioCell.xib */,
 			);
 			name = "Custom Cell";
 			sourceTree = "<group>";
@@ -134,7 +150,6 @@
 		147448EB1FCC226400ABBED8 /* Coin */ = {
 			isa = PBXGroup;
 			children = (
-				140EC21E1FE1846100406670 /* Extensions */,
 				144B96D11FCED57100E935A0 /* Controller */,
 				144B96D01FCED56A00E935A0 /* View */,
 				144B96CF1FCED55300E935A0 /* Model */,
@@ -224,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140EC2301FE1955D00406670 /* PortfolioCell.xib in Resources */,
+				14E34E441FF815DE00869373 /* AlertCell.xib in Resources */,
 				144B97021FCF12AA00E935A0 /* HomeCell.xib in Resources */,
 				147448F91FCC226400ABBED8 /* LaunchScreen.storyboard in Resources */,
 				147448F61FCC226400ABBED8 /* Assets.xcassets in Resources */,
@@ -294,13 +310,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14E34E461FFD1B1900869373 /* CurrencySwitcher.swift in Sources */,
 				147448F11FCC226400ABBED8 /* PortfolioViewController.swift in Sources */,
+				14E34E431FF815DE00869373 /* AlertCell.swift in Sources */,
 				1439CD2F1FE021AF0032E629 /* Double+WithSeparator.swift in Sources */,
 				140EC2341FE1BF8800406670 /* GetData.swift in Sources */,
 				147448ED1FCC226400ABBED8 /* AppDelegate.swift in Sources */,
 				140EC2321FE1BBE400406670 /* MyVariables.swift in Sources */,
 				144B97011FCF12AA00E935A0 /* HomeCell.swift in Sources */,
+				14E34E4A1FFD2CCE00869373 /* EditAlertViewController.swift in Sources */,
 				144B97061FD02A1400E935A0 /* HomeLabel.swift in Sources */,
+				14E34E481FFD2BEB00869373 /* AddAlertViewController.swift in Sources */,
 				147448EF1FCC226400ABBED8 /* HomeViewController.swift in Sources */,
 				147449011FCC2B2D00ABBED8 /* AlertViewController.swift in Sources */,
 				14079B3B1FE2CB7000B6296A /* View+GetDataDelegate.swift in Sources */,

@@ -12,8 +12,6 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
     
     let getData = GetData()
     
-    
-    
     @IBOutlet weak var cellTableView: UITableView!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
     @IBOutlet weak var timeStampLabel: UILabel!
@@ -282,6 +280,8 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func currencyControlPressed(_ sender: UISegmentedControl) {
+        
+        
         
         if sender.selectedSegmentIndex == 0 {
             MyVariables.currentCurency = "CZK"

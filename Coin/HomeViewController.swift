@@ -13,6 +13,7 @@ import SwiftyJSON
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let getData = GetData()
+    let currencySwitcher = CurrencySwitcher ()
     
     //1
     @IBOutlet weak var cellTableView: UITableView!
@@ -38,7 +39,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if myLoadedArray .isEmpty {
             for (n, _) in MyVariables.coinTickerArray.enumerated() {
 
-                MyVariables.dataArray.append(HomeLabel(coinNameCell: MyVariables.coinNameArray[n], tickerCell: MyVariables.coinTickerArray[n], ownedCell: Double(MyVariables.ownedArray[n])))
+                 MyVariables.dataArray.append(HomeLabel(coinNameCell: MyVariables.coinNameArray[n], tickerCell: MyVariables.coinTickerArray[n], ownedCell: Double(MyVariables.ownedArray[n])))
             }
         } else {
             for (n, _) in MyVariables.coinTickerArray.enumerated() {
@@ -52,7 +53,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         getData.delegate = self
         
         print(MyVariables.currencyControlSelected)
-//        storeData()
+
         getData.storeData()
         
     }
@@ -166,27 +167,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         getData.storeData()
         print("refresh")
         self.cellTableView.reloadData()
-//        self.didFinishGetData(finished: true)
     }
 
     @IBAction func currencyControlPressed(_ sender: UISegmentedControl) {
-
-        if sender.selectedSegmentIndex == 0 {
-            MyVariables.currentCurency = "CZK"
-            MyVariables.currencyControlSelected = sender.selectedSegmentIndex
-            print("CZK")
-        } else if sender.selectedSegmentIndex == 1 {
-            MyVariables.currentCurency = "USD"
-            MyVariables.currencyControlSelected = sender.selectedSegmentIndex
-            print("USD")
-        } else if sender.selectedSegmentIndex == 2 {
-            MyVariables.currentCurency = "EUR"
-            MyVariables.currencyControlSelected = sender.selectedSegmentIndex
-            print("EUR")
-        }
         
+        currencySwitcher.switcher(sender: sender.selectedSegmentIndex)
         getData.storeData()
     }
-    
 
 }
