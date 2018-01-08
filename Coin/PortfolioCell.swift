@@ -16,6 +16,7 @@ protocol PortfolioCellDelegate {
 class PortfolioCell: UITableViewCell, UITextFieldDelegate  {
     
     var delegate: PortfolioCellDelegate?
+//    let toolBar = ToolBar ()
 
     @IBOutlet weak var coinNameCell: UILabel!
     @IBOutlet weak var tickerCell: UILabel!
@@ -50,6 +51,9 @@ class PortfolioCell: UITableViewCell, UITextFieldDelegate  {
         
         self.textCell.delegate = self
         
+//        toolBar.bar(textFied: textCell)
+//        toolBar.doneButtonAction(textFied: textCell)
+
         let flexiableSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(self.doneButtonAction))
         let toolBar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: 35))
@@ -61,11 +65,11 @@ class PortfolioCell: UITableViewCell, UITextFieldDelegate  {
         textCell.inputAccessoryView = toolBar
         textCell.keyboardType = UIKeyboardType.decimalPad
     }
-
+    
     @objc func doneButtonAction() {
         textCell.endEditing(true)
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state

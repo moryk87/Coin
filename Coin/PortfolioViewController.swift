@@ -31,27 +31,7 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
         getData.delegate = self
         
         timeStampLabel.text = MyVariables.timeStamp
-        
-    //}
-        
-
-//        //init toolbar
-//        let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: self.view.frame.size.width, height: 30))
-//        
-//        //create left side empty space so that done button set on right side
-//        let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
-//        let doneButton: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: Selector("doneButtonAction"))
-//        
-//        toolbar.setItems([flexSpace, doneButton], animated: false)
-//        toolbar.sizeToFit()
-//        
-//        //setting toolbar as inputAccessoryView
-//        self.selectedCell.textCell.inputAccessoryView = toolbar
-//
-//    }
-//    
-//    func doneButtonAction() {
-//        self.view.endEditing(true)
+    
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -60,7 +40,10 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
         self.currencyControl.selectedSegmentIndex = MyVariables.currencyControlSelected
         self.timeStampLabel.text = MyVariables.timeStamp
         
-        savesArray()
+        print("MyVariables.ownedArray:")
+        print(MyVariables.ownedArray)
+        
+//        savesArray()
     }
     
     //MARK: - tableView
@@ -72,12 +55,8 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
         
         coinCell.coinNameCell.text = MyVariables.dataArray[indexPath.row].coinNameCell
         coinCell.tickerCell.text = MyVariables.dataArray[indexPath.row].tickerCell
-        
         coinCell.changeCell.text = ((MyVariables.dataArray[indexPath.row].changeCell).withSeparator)+" %"
-        
-        //        coinCell.priceCell.text = String(format: "%.2f", dataArray[indexPath.row].priceCell)
-       
-         coinCell.priceCell.text = (MyVariables.dataArray[indexPath.row].priceCell*MyVariables.dataArray[indexPath.row].ownedCell).withSeparator
+        coinCell.priceCell.text = (MyVariables.dataArray[indexPath.row].priceCell*MyVariables.dataArray[indexPath.row].ownedCell).withSeparator
         
         if MyVariables.dataArray[indexPath.row].changeCell >= 0 {
             coinCell.changeCell.textColor = UIColor(red:0.00, green:0.63, blue:0.00, alpha:1.0)
@@ -94,18 +73,8 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
         return MyVariables.coinTickerArray.count
     }
     
-//
-//
-    
-    
-    func savesArray() {
 
-        let defaults = UserDefaults.standard
-        defaults.set(MyVariables.ownedArray, forKey: "SavedDoubleArray")
-        print("SavedDoubleArray")
-        print(MyVariables.ownedArray)
-
-    }
+    
     
     
 //    if let temp = UserDefaults.standardUserDefaults.objectForKey("myArray") as? [Int] {
@@ -127,6 +96,14 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
     //MARK: - editing
     /***************************************************************/
     
+    func savesArray() {
+        
+        let defaults = UserDefaults.standard
+        defaults.set(MyVariables.ownedArray, forKey: "SavedFloatArray")
+        print("SavedFloatArray")
+        print(MyVariables.ownedArray)
+        
+    }
     
     func portfolioButtonPressed(coinCell: PortfolioCell, editingChangedInTextCell newValue: String) {
         let indexPath = self.cellTableView.indexPathForRow(at: coinCell.center)!
@@ -140,9 +117,9 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
         print("editingChangedInTextField: \"\(newValue)\" in cell: \(indexPath.row)")
         
         if newValue != "XXX" {
-            let owned: Double = Double(newValue)!
+            let owned: Float = Float(newValue)!
             MyVariables.dataArray[indexPath.row].ownedCell = owned
-            MyVariables.ownedArray[indexPath.row] = Int(newValue)!
+            MyVariables.ownedArray[indexPath.row] = Float(newValue)!
             
             savesArray()
         }
@@ -174,6 +151,7 @@ class PortfolioViewController: UIViewController, UITableViewDelegate, UITableVie
 
         selectedCell.priceCell.isHidden = true
         selectedCell.textCell.isHidden = false
+        selectedCell.textCell.text = String(MyVariables.ownedArray[indexPath.row])
 //        selectedCell.textCell.keyboardType = UIKeyboardType.decimalPad
         
         print(indexPath.row)

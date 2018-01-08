@@ -33,18 +33,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cellTableView.register(UINib(nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "homeCell")
         
         
-        let myLoadedArray = UserDefaults.standard.array(forKey: "SavedDoubleArray") as? [Double] ?? []
+        let myLoadedArray = UserDefaults.standard.array(forKey: "SavedFloatArray") as? [Float] ?? []
         print("myLoadedArray: \(myLoadedArray)")
 
         if myLoadedArray .isEmpty {
             for (n, _) in MyVariables.coinTickerArray.enumerated() {
 
-                 MyVariables.dataArray.append(HomeLabel(coinNameCell: MyVariables.coinNameArray[n], tickerCell: MyVariables.coinTickerArray[n], ownedCell: Double(MyVariables.ownedArray[n])))
+                 MyVariables.dataArray.append(HomeLabel(coinNameCell: MyVariables.coinNameArray[n], tickerCell: MyVariables.coinTickerArray[n], ownedCell: Float(MyVariables.ownedArray[n])))
             }
         } else {
             for (n, _) in MyVariables.coinTickerArray.enumerated() {
 
                 MyVariables.dataArray.append(HomeLabel(coinNameCell: MyVariables.coinNameArray[n], tickerCell: MyVariables.coinTickerArray[n], ownedCell: myLoadedArray[n]))
+                
+                MyVariables.ownedArray[n] = myLoadedArray[n]
             }
         }
         

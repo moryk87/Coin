@@ -44,14 +44,14 @@ class GetData {
     
     func updateCoinData(json: JSON, number: Int) {
         
-        if let changeResult = json["changes"]["percent"]["day"].double {
+        if let changeResult = json["changes"]["percent"]["day"].float {
             MyVariables.dataArray[number].changeCell = changeResult
             print("changeCell: \(MyVariables.dataArray[number].changeCell)")
         } else {
             MyVariables.timeStamp = "Change Unavailable"
         }
         
-        if let priceResult = json["last"].double {
+        if let priceResult = json["last"].float {
             MyVariables.dataArray[number].priceCell = priceResult
             print("priceCell: \(MyVariables.dataArray[number].priceCell)")
         } else {

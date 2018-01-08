@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AlertCellDelegate {
-    func alertButtonPressed(didSelect coinCell: AlertCell)
+    func editButtonPressed(didSelect coinCell: AlertCell)
 }
 
 class AlertCell: UITableViewCell {
@@ -22,7 +22,7 @@ class AlertCell: UITableViewCell {
     @IBOutlet weak var editCell: UIButton!
     
     @IBAction func editCellPressed(_ sender: UIButton) {
-        delegate?.alertButtonPressed(didSelect: self)
+        delegate?.editButtonPressed(didSelect: self)
     }
     
     

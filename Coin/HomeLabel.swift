@@ -12,14 +12,13 @@ class HomeLabel {
     
     var coinNameCell : String
     var tickerCell : String
-    var changeCell : Double = 0.00
-    var priceCell : Double = 0.00
-    var ownedCell : Double
+    var changeCell : Float = 0.0
+    var priceCell : Float = 0.0
+    var ownedCell : Float
     
-    init (coinNameCell: String, tickerCell: String, ownedCell: Double) {
+    init (coinNameCell: String, tickerCell: String, ownedCell: Float) {
         self.coinNameCell = coinNameCell
         self.tickerCell = tickerCell
         self.ownedCell = ownedCell
     }
-
 }

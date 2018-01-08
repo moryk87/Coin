@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Double {
+extension Float {
     var withSeparator:String {
         let formatter = NumberFormatter()
         formatter.groupingSeparator = "\u{2009}"
