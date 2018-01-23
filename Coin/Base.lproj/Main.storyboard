@@ -296,7 +296,7 @@
                                     <action selector="currencyControlPressed:" destination="OWq-fY-ENs" eventType="valueChanged" id="SRX-9u-cPd"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ethereum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RvO-SS-mOF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitcoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RvO-SS-mOF">
                                 <rect key="frame" x="10" y="114" width="90" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="CTK-y6-PSg"/>
@@ -306,7 +306,7 @@
                                 <color key="textColor" red="0.1529411765" green="0.69411764710000001" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETH" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDg-xU-Qzo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDg-xU-Qzo">
                                 <rect key="frame" x="105" y="118" width="30" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="MTr-KZ-L9d"/>
@@ -392,12 +392,23 @@
                                     <action selector="deleteButtonPressed:" destination="OWq-fY-ENs" eventType="touchUpInside" id="zmq-qS-Z0g"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXk-ml-05h">
+                                <rect key="frame" x="10" y="144" width="300" height="1"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.80000000000000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="nWQ-AU-dTb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="VQs-eg-Qsp" firstAttribute="trailing" secondItem="l44-SW-Knm" secondAttribute="trailing" constant="10" id="3vq-9w-F2Z"/>
                             <constraint firstItem="miw-cA-DrE" firstAttribute="centerY" secondItem="zwH-82-1WW" secondAttribute="centerY" id="7zu-gx-qEe"/>
+                            <constraint firstItem="zXk-ml-05h" firstAttribute="top" secondItem="RvO-SS-mOF" secondAttribute="bottom" constant="5" id="8dJ-yr-mDE"/>
                             <constraint firstItem="Pu4-2w-q6I" firstAttribute="bottom" secondItem="RvO-SS-mOF" secondAttribute="bottom" id="8qN-gP-o16"/>
                             <constraint firstItem="l44-SW-Knm" firstAttribute="top" secondItem="VQs-eg-Qsp" secondAttribute="top" constant="10" id="DZp-fM-pUE"/>
                             <constraint firstItem="Nts-Rf-4QG" firstAttribute="bottom" secondItem="RvO-SS-mOF" secondAttribute="bottom" id="GiT-KY-HZc"/>
@@ -409,6 +420,7 @@
                             <constraint firstItem="RvO-SS-mOF" firstAttribute="top" secondItem="l44-SW-Knm" secondAttribute="bottom" constant="15" id="Xge-4A-kLq"/>
                             <constraint firstItem="mDg-xU-Qzo" firstAttribute="bottom" secondItem="RvO-SS-mOF" secondAttribute="bottom" id="YXi-bu-ZgI"/>
                             <constraint firstItem="5uu-ii-Bjz" firstAttribute="leading" secondItem="VQs-eg-Qsp" secondAttribute="leading" id="YyG-jZ-Mib"/>
+                            <constraint firstItem="zXk-ml-05h" firstAttribute="leading" secondItem="VQs-eg-Qsp" secondAttribute="leading" constant="10" id="bZy-Vj-DOv"/>
                             <constraint firstItem="zwH-82-1WW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Klx-FH-321" secondAttribute="trailing" constant="5" id="cGP-VH-13b"/>
                             <constraint firstItem="VQs-eg-Qsp" firstAttribute="trailing" secondItem="Nts-Rf-4QG" secondAttribute="trailing" constant="10" id="f8v-Q8-a95"/>
                             <constraint firstItem="Klx-FH-321" firstAttribute="leading" secondItem="VQs-eg-Qsp" secondAttribute="leading" constant="10" id="gVE-lB-K7v"/>
@@ -419,6 +431,7 @@
                             <constraint firstItem="mDg-xU-Qzo" firstAttribute="leading" secondItem="RvO-SS-mOF" secondAttribute="trailing" constant="5" id="pH7-z5-Eq1"/>
                             <constraint firstItem="Nts-Rf-4QG" firstAttribute="leading" secondItem="Pu4-2w-q6I" secondAttribute="trailing" constant="5" id="pQo-XQ-hZx"/>
                             <constraint firstItem="VQs-eg-Qsp" firstAttribute="trailing" secondItem="5uu-ii-Bjz" secondAttribute="trailing" id="pZv-o1-JlH"/>
+                            <constraint firstItem="VQs-eg-Qsp" firstAttribute="trailing" secondItem="zXk-ml-05h" secondAttribute="trailing" constant="10" id="q7K-gf-xcQ"/>
                             <constraint firstItem="VQs-eg-Qsp" firstAttribute="trailing" secondItem="miw-cA-DrE" secondAttribute="trailing" constant="10" id="tix-X8-Jos"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VQs-eg-Qsp"/>
@@ -452,7 +465,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Thf-4n-Wzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3720" y="777"/>
+            <point key="canvasLocation" x="3720" y="776.4084507042254"/>
         </scene>
         <!--Portfolio View Controller-->
         <scene sceneID="wg7-f3-ORb">

@@ -25,6 +25,6 @@ class CurrencySwitcher {
             MyVariables.currencyControlSelected = sender
             print("EUR")
         }
-        
     }
+    
 }

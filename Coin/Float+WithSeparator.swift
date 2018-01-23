@@ -1,5 +1,5 @@
 //
-//  extension.swift
+//  Float+WithSeparator.swift
 //  Coin
 //
 //  Created by Jan Moravek on 12/12/2017.

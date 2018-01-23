@@ -8,5 +8,9 @@ target 'Coin' do
 
     pod 'SwiftyJSON'
     pod 'Alamofire'
+    pod 'Firebase/Core'
+    pod 'Firebase/Database'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Messaging'
 
 end

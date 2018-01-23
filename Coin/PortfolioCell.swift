@@ -1,5 +1,5 @@
 //
-//  SecondCell.swift
+//  PortfolioCell.swift
 //  Coin
 //
 //  Created by Jan Moravek on 13/12/2017.
@@ -39,12 +39,6 @@ class PortfolioCell: UITableViewCell, UITextFieldDelegate  {
             delegate?.portfolioButtonPressed(coinCell: self, editingChangedInTextCell: text!)
         }
     }
-    
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textCell.resignFirstResponder()
-//        print("return textFieldShouldReturn")
-//        return true
-//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

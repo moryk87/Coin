@@ -1,5 +1,5 @@
 //
-//  HomeView+GetData.swift
+//  View+GetDataDelegate.swift
 //  Coin
 //
 //  Created by Jan Moravek on 14/12/2017.

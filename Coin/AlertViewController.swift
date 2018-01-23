@@ -1,19 +1,19 @@
 //
-//  SecondViewController.swift
+//  AlertViewController.swift
 //  Coin
 //
-//  Created by Jan Moravek on 27/11/2017.
+//  Created by Jan Moravek on 18/12/2017.
 //  Copyright © 2017 Jan Moravek. All rights reserved.
 //
 
 import UIKit
+import Firebase
 
 class AlertViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AlertCellDelegate, EditAlertDelegate {
     
     let currencySwitcher = CurrencySwitcher ()
-//    let editAlertViewController = EditAlertViewController()
-
-//    var selectedNotificationIndex: Int = 0
+    let notification = Notification ()
+    var myDatabase: DatabaseReference?
     
     @IBOutlet weak var cellTableView: UITableView!    
     @IBOutlet weak var currencyControl: UISegmentedControl!
@@ -26,19 +26,25 @@ class AlertViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cellTableView.delegate = self
         cellTableView.dataSource = self
         
+        cellTableView.tableFooterView = UIView()
+        
         cellTableView.register(UINib(nibName: "AlertCell", bundle: nil), forCellReuseIdentifier: "alertCell")
         
         self.currencyControl.selectedSegmentIndex = MyVariables.currencyControlSelected
         
         timeStampLabel.text = MyVariables.timeStamp
+        
+        logIn()
+        retrieveNotificationArray()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.cellTableView.reloadData()
+        self.cellTableView.reloadData()
         self.currencyControl.selectedSegmentIndex = MyVariables.currencyControlSelected
         self.timeStampLabel.text = MyVariables.timeStamp
     }
+    
     
     //MARK: - tableView
     /***************************************************************/
@@ -72,15 +78,14 @@ class AlertViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return coinCell
     }
     
-    //MARK: - alertButtonPressed
+    //MARK: - editButtonPressed
     /***************************************************************/
     
     func editButtonPressed(didSelect coinCell: AlertCell) {
         let indexPath = self.cellTableView.indexPathForRow(at: coinCell.center)!
-//        let selectedCell = cellTableView.cellForRow(at: indexPath) as! AlertCell
         
         MyVariables.selectedNotificationIndex = indexPath.row
-        print(MyVariables.selectedNotificationIndex)
+//        print(MyVariables.selectedNotificationIndex)
         
         performSegue(withIdentifier: "editSegue", sender: self)
     }
@@ -94,15 +99,12 @@ class AlertViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
             print(shortcut.coinNameCell)
 
-//            targetVC.coinNameField.text = shortcut.coinNameCell
-//            targetVC.tickerField.text = shortcut.tickerCell
-//            targetVC.conditionField.text = shortcut.conditionCell
-//            targetVC.valueField.text = String(shortcut.valueCell)
-//            targetVC.currencyField.text = shortcut.currencyCell
-
             MyVariables.deleteHidden = false
             MyVariables.edit = true
             targetVC.delegate = self
+            
+//            print("EDIT")
+//            print(MyVariables.selectedNotificationIndex)
         }
         else {
             let destinationNavigationController = segue.destination as! UINavigationController
@@ -110,27 +112,136 @@ class AlertViewController: UIViewController, UITableViewDelegate, UITableViewDat
             MyVariables.deleteHidden = true
             MyVariables.edit = false
             targetVC.delegate = self
+            
+            if MyVariables.selectedNotificationIndex != 0 {
+                MyVariables.selectedNotificationIndex = MyVariables.notificationArray.count
+            }
+            
+//            print("NEW")
+//            print(MyVariables.selectedNotificationIndex)
         }
     }
+    
+    
+    //MARK: - retrieve data
+    /***************************************************************/
+    
+    func retrieveNotificationArray () {
+        myDatabase = Database.database().reference().child("notificationArray")
+        
+        myDatabase?.observe(.childAdded, with: { (snapshot) in
+            
+            let snapshotValue = snapshot.value as! Dictionary<String,String>
+            
+            MyVariables.notificationArray.append(
+                NotificationLabel(coinNameCell: snapshotValue["coinNameCell"]!, tickerCell: snapshotValue["tickerCell"]!, conditionCell: snapshotValue["conditionCell"]!, valueCell: Float(snapshotValue["valueCell"]!)!, currencyCell: snapshotValue["currencyCell"]!, keyCell: snapshot.key)
+            )
+//            print(snapshot.key)
+            
+            MyVariables.selectedNotificationIndex = MyVariables.notificationArray.count - 1
+            self.cellTableView.reloadData()
+        })
+    }
+    
+    func logIn () {
+        
+        Auth.auth().signInAnonymously { (user, error) in
+            if error != nil {
+                print(error!)
+            } else {
+                print("login succesful")
+            }
+        }
+    }
+    
+    //MARK: - save data
+    /***************************************************************/
+    
+    func saveNotificationArray () {
+        
+        myDatabase = Database.database().reference()
+        let shortcut = MyVariables.notificationArray[MyVariables.selectedNotificationIndex]
+        let notificationDictionary = ["coinNameCell": shortcut.coinNameCell,
+                                      "tickerCell": shortcut.tickerCell,
+                                      "conditionCell": shortcut.conditionCell,
+                                      "valueCell": String(shortcut.valueCell),
+                                      "currencyCell": shortcut.currencyCell
+        ]
+        
+        if MyVariables.edit == true {
+
+            myDatabase?.child("notificationArray").child(shortcut.keyCell).updateChildValues(notificationDictionary)
+            {
+                (error, reference) in
+                
+                if error != nil {
+                    print(error!)
+                } else {
+//                    print("EDITED saved successfully")
+//                    print("\(shortcut.keyCell)")
+                }
+            }
+            
+        } else {
+            
+            myDatabase?.child("notificationArray").childByAutoId().setValue(notificationDictionary) {
+                (error, reference) in
+                
+                if error != nil {
+                    print(error!)
+                } else {
+//                    print("NEW saved successfully")
+//                    print(MyVariables.selectedNotificationIndex)
+                    
+                    let shortcut = MyVariables.notificationArray[MyVariables.selectedNotificationIndex]
+                    
+                    self.notification.sendPush(coinNameCell: shortcut.coinNameCell, tickerCell: shortcut.tickerCell, conditionCell: shortcut.conditionCell, valueCell: shortcut.valueCell, currencyCell: shortcut.currencyCell)
+                }
+            }
+            MyVariables.notificationArray.remove(at: MyVariables.selectedNotificationIndex)
+        }
+        
+        self.cellTableView.reloadData()
+//        print("reloadData")
+    }
+    
     
     //MARK: - alertButtonPressed
     /***************************************************************/
     
     func editAlertButtonPressed(didPress: Bool) {
-        guard didPress else {
-            // Handle the unfinished state
-            return
-        }
-        self.cellTableView.reloadData()
-        print("reloadData")
+//        guard didPress else {
+//            // Handle the unfinished state
+//            return
+//        }
+        
+        saveNotificationArray ()
+//        print(MyVariables.notificationArray.count)
     }
-
+    
+    func deleteAlertButtonPressed(didPress: Bool) {
+        
+        myDatabase = Database.database().reference()
+        let shortcut = MyVariables.notificationArray[MyVariables.selectedNotificationIndex]
+//        print(MyVariables.selectedNotificationIndex)
+        
+        myDatabase?.child("notificationArray").child(shortcut.keyCell).removeValue(completionBlock: { (error, refererence) in
+            if error != nil {
+                print(error!)
+            } else {
+                print(refererence)
+                print("Child Removed Correctly")
+            }
+        })
+        MyVariables.notificationArray.remove(at: MyVariables.selectedNotificationIndex)
+        self.cellTableView.reloadData()
+    }
+    
     
     //MARK: - IBAction
     /***************************************************************/
     
     @IBAction func currencyControlPressed(_ sender: UISegmentedControl) {
-        
         currencySwitcher.switcher(sender: sender.selectedSegmentIndex)
     }
     
@@ -139,4 +250,3 @@ class AlertViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
 }
-

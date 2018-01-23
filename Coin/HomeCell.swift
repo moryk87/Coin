@@ -1,5 +1,5 @@
 //
-//  CustomCell.swift
+//  HomeCell.swift
 //  Coin
 //
 //  Created by Jan Moravek on 29/11/2017.
@@ -8,12 +8,23 @@
 
 import UIKit
 
+protocol HomeCellDelegate {
+    func buyButtonPressed (didSelect coinCell: HomeCell)
+}
+
 class HomeCell: UITableViewCell {
+    
+    var delegate: HomeCellDelegate?
 
     @IBOutlet weak var coinNameCell: UILabel!
     @IBOutlet weak var tickerCell: UILabel!
     @IBOutlet weak var changeCell: UILabel!
     @IBOutlet weak var priceCell: UILabel!
+    @IBOutlet weak var buyCell: UIButton!
+    
+    @IBAction func buyCellPressed(_ sender: UIButton) {
+        delegate?.buyButtonPressed(didSelect: self)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

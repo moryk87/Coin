@@ -1,5 +1,5 @@
 //
-//  GlobalVariables.swift
+//  MyVariables.swift
 //  Coin
 //
 //  Created by Jan Moravek on 13/12/2017.
@@ -29,4 +29,6 @@ struct MyVariables {
     
     static var currencyControlSelected = 1
     static var selectedNotificationIndex: Int = 0
+    
+    static var token: String = ""
 }

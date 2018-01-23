@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,9 +30,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2000.22" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cp-yZ-g8Z">
-                        <rect key="frame" x="195" y="0.0" width="105" height="40"/>
+                        <rect key="frame" x="171" y="0.0" width="105" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="105" id="Zgz-0j-zII"/>
                             <constraint firstAttribute="width" constant="105" id="dhT-pM-32u"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -50,7 +49,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1.22%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIS-ZO-9QP">
-                        <rect key="frame" x="125" y="11" width="65" height="21.5"/>
+                        <rect key="frame" x="101" y="11" width="65" height="21.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="65" id="7nO-6E-bdm"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="65" id="dLY-ic-h35"/>
@@ -59,6 +58,17 @@
                         <color key="textColor" red="0.001785541019" green="0.6288269353" blue="0.0027704294659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbO-Ol-28m">
+                        <rect key="frame" x="281" y="10.5" width="19" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="19" id="NHm-oj-ahm"/>
+                            <constraint firstAttribute="width" constant="19" id="yRW-48-IxB"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="006-cart"/>
+                        <connections>
+                            <action selector="buyCellPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="HNH-WP-Pjc"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
@@ -67,24 +77,30 @@
                     <constraint firstItem="lT0-jr-ozx" firstAttribute="leading" secondItem="nfk-CJ-pNG" secondAttribute="trailing" id="9U1-yP-q7F"/>
                     <constraint firstItem="6cp-yZ-g8Z" firstAttribute="leading" secondItem="uIS-ZO-9QP" secondAttribute="trailing" constant="5" id="B7L-hZ-g6n"/>
                     <constraint firstItem="uIS-ZO-9QP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="Hei-yt-kwd"/>
+                    <constraint firstAttribute="trailing" secondItem="zbO-Ol-28m" secondAttribute="trailing" id="Jzc-Uh-lf8"/>
                     <constraint firstItem="lT0-jr-ozx" firstAttribute="leading" secondItem="nfk-CJ-pNG" secondAttribute="trailing" id="KDj-Vm-PVC"/>
+                    <constraint firstItem="zbO-Ol-28m" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="USQ-VI-vBb"/>
                     <constraint firstAttribute="bottom" secondItem="nfk-CJ-pNG" secondAttribute="bottom" id="bqf-TY-PHH"/>
                     <constraint firstAttribute="bottom" secondItem="6cp-yZ-g8Z" secondAttribute="bottom" id="d2K-it-HHl"/>
                     <constraint firstAttribute="bottom" secondItem="uIS-ZO-9QP" secondAttribute="bottom" constant="7" id="fRi-MQ-PRh"/>
                     <constraint firstItem="lT0-jr-ozx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="gvx-No-RJ0"/>
                     <constraint firstItem="nfk-CJ-pNG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jrm-ZC-0cU"/>
                     <constraint firstItem="6cp-yZ-g8Z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="q60-7W-iDd"/>
-                    <constraint firstAttribute="trailing" secondItem="6cp-yZ-g8Z" secondAttribute="trailing" id="xZf-sd-8do"/>
-                    <constraint firstItem="6cp-yZ-g8Z" firstAttribute="leading" secondItem="uIS-ZO-9QP" secondAttribute="trailing" constant="5" id="y7k-ID-CK1"/>
+                    <constraint firstItem="zbO-Ol-28m" firstAttribute="leading" secondItem="6cp-yZ-g8Z" secondAttribute="trailing" constant="5" id="yqj-yV-bKJ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="buyCell" destination="zbO-Ol-28m" id="9OW-yT-7jW"/>
                 <outlet property="changeCell" destination="uIS-ZO-9QP" id="FTF-qQ-EkU"/>
                 <outlet property="coinNameCell" destination="nfk-CJ-pNG" id="gAR-UE-R05"/>
                 <outlet property="priceCell" destination="6cp-yZ-g8Z" id="7fI-vm-cGG"/>
                 <outlet property="tickerCell" destination="lT0-jr-ozx" id="V1S-mS-NRj"/>
             </connections>
+            <point key="canvasLocation" x="34" y="55"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="006-cart" width="56" height="56"/>
+    </resources>
 </document>

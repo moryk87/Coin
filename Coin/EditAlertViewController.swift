@@ -10,7 +10,7 @@ import UIKit
 
 protocol EditAlertDelegate {
     func editAlertButtonPressed(didPress: Bool)
-//    func alertSaveButtonPressed(coinCell:PortfolioCell, editingChangedInTextCell newValue:String)
+    func deleteAlertButtonPressed(didPress: Bool)
 }
 
 class EditAlertViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
@@ -40,7 +40,6 @@ class EditAlertViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.tintColor = UIColor(red:0.93, green:0.93, blue:0.93, alpha:1.0)
-//        self.navigationController?.navigationBar.topItem?.title = "Back"
         
         valueTextField.delegate = self
         
@@ -59,7 +58,7 @@ class EditAlertViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         if MyVariables.edit == true {
             let shortcut = MyVariables.notificationArray[MyVariables.selectedNotificationIndex]
-            print(shortcut.coinNameCell)
+//            print(shortcut.coinNameCell)
             
             coinNameField.text = shortcut.coinNameCell
             tickerField.text = shortcut.tickerCell
@@ -68,6 +67,7 @@ class EditAlertViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             currencyField.text = shortcut.currencyCell
         }
     }
+    
     
     //MARK: - toolBar
     /***************************************************************/
@@ -129,6 +129,7 @@ class EditAlertViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         }
     }
     
+    
     //MARK: - IBAction
     /***************************************************************/
     
@@ -148,16 +149,18 @@ class EditAlertViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             shortcut.valueCell = Float(valueField.text!)!
             shortcut.currencyCell = currencyField.text!
             
+//            print(MyVariables.selectedNotificationIndex)
         } else  {
             MyVariables.notificationArray.append(
-                NotificationLabel(coinNameCell: coinNameField.text!, tickerCell: tickerField.text!, conditionCell: conditionField.text!, valueCell: Float(valueField.text!)!, currencyCell: currencyField.text!)
+                NotificationLabel(coinNameCell: coinNameField.text!, tickerCell: tickerField.text!, conditionCell: conditionField.text!, valueCell: Float(valueField.text!)!, currencyCell: currencyField.text!, keyCell: "")
             )
+//            print(MyVariables.selectedNotificationIndex)
         }
         
-        print(MyVariables.notificationArray[MyVariables.selectedNotificationIndex].coinNameCell)
-        print(MyVariables.notificationArray[MyVariables.selectedNotificationIndex].conditionCell)
-        print(MyVariables.notificationArray[MyVariables.selectedNotificationIndex].valueCell)
-        print(MyVariables.notificationArray[MyVariables.selectedNotificationIndex].currencyCell)
+//        print(MyVariables.notificationArray[MyVariables.selectedNotificationIndex].coinNameCell)
+//        print(MyVariables.notificationArray[MyVariables.selectedNotificationIndex].conditionCell)
+//        print(MyVariables.notificationArray[MyVariables.selectedNotificationIndex].valueCell)
+//        print(MyVariables.notificationArray[MyVariables.selectedNotificationIndex].currencyCell)
         
         self.delegate?.editAlertButtonPressed(didPress: true)
         self.dismiss(animated: true, completion: nil)
@@ -165,12 +168,19 @@ class EditAlertViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
-
-        MyVariables.notificationArray.remove(at: MyVariables.selectedNotificationIndex)
-        self.delegate?.editAlertButtonPressed(didPress: true)
-        self.dismiss(animated: true, completion: nil)
         
-        print("delete")
+        let refreshAlert = UIAlertController(title: "Delete", message: "Notification will be lost.", preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            self.delegate?.deleteAlertButtonPressed(didPress: true)
+            self.dismiss(animated: true, completion: nil)
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
     }
     
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {

@@ -15,12 +15,14 @@ class NotificationLabel {
     var conditionCell : String
     var valueCell : Float
     var currencyCell : String
+    var keyCell : String
     
-    init (coinNameCell: String, tickerCell: String, conditionCell: String, valueCell: Float, currencyCell: String) {
+    init (coinNameCell: String, tickerCell: String, conditionCell: String, valueCell: Float, currencyCell: String, keyCell: String) {
         self.coinNameCell = coinNameCell
         self.tickerCell = tickerCell
         self.conditionCell = conditionCell
         self.valueCell = valueCell
         self.currencyCell = currencyCell
+        self.keyCell = keyCell
     }
 }

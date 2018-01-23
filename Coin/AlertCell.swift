@@ -25,7 +25,6 @@ class AlertCell: UITableViewCell {
         delegate?.editButtonPressed(didSelect: self)
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

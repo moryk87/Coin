@@ -12,6 +12,7 @@
 		140EC2301FE1955D00406670 /* PortfolioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140EC22E1FE1955D00406670 /* PortfolioCell.xib */; };
 		140EC2321FE1BBE400406670 /* MyVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140EC2311FE1BBE400406670 /* MyVariables.swift */; };
 		140EC2341FE1BF8800406670 /* GetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140EC2331FE1BF8800406670 /* GetData.swift */; };
+		1422F49D2006600A004F18AC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1422F49C2006600A004F18AC /* GoogleService-Info.plist */; };
 		1439CD2F1FE021AF0032E629 /* Float+WithSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439CD2E1FE021AF0032E629 /* Float+WithSeparator.swift */; };
 		144B97011FCF12AA00E935A0 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B96FF1FCF12AA00E935A0 /* HomeCell.swift */; };
 		144B97021FCF12AA00E935A0 /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144B97001FCF12AA00E935A0 /* HomeCell.xib */; };
@@ -23,6 +24,7 @@
 		147448F61FCC226400ABBED8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 147448F51FCC226400ABBED8 /* Assets.xcassets */; };
 		147448F91FCC226400ABBED8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 147448F71FCC226400ABBED8 /* LaunchScreen.storyboard */; };
 		147449011FCC2B2D00ABBED8 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147449001FCC2B2D00ABBED8 /* AlertViewController.swift */; };
+		148826CA200FDA5900155A62 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148826C9200FDA5900155A62 /* Notification.swift */; };
 		14E34E431FF815DE00869373 /* AlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E34E411FF815DE00869373 /* AlertCell.swift */; };
 		14E34E441FF815DE00869373 /* AlertCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E34E421FF815DE00869373 /* AlertCell.xib */; };
 		14E34E461FFD1B1900869373 /* CurrencySwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E34E451FFD1B1900869373 /* CurrencySwitcher.swift */; };
@@ -38,6 +40,7 @@
 		140EC22E1FE1955D00406670 /* PortfolioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PortfolioCell.xib; sourceTree = "<group>"; };
 		140EC2311FE1BBE400406670 /* MyVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVariables.swift; sourceTree = "<group>"; };
 		140EC2331FE1BF8800406670 /* GetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetData.swift; sourceTree = "<group>"; };
+		1422F49C2006600A004F18AC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1439CD2E1FE021AF0032E629 /* Float+WithSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+WithSeparator.swift"; sourceTree = "<group>"; };
 		144B96FF1FCF12AA00E935A0 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		144B97001FCF12AA00E935A0 /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
@@ -51,6 +54,8 @@
 		147448F81FCC226400ABBED8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		147448FA1FCC226400ABBED8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		147449001FCC2B2D00ABBED8 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		148826C8200FD8FB00155A62 /* Coin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Coin.entitlements; sourceTree = "<group>"; };
+		148826C9200FDA5900155A62 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		14E34E411FF815DE00869373 /* AlertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCell.swift; sourceTree = "<group>"; };
 		14E34E421FF815DE00869373 /* AlertCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertCell.xib; sourceTree = "<group>"; };
 		14E34E451FFD1B1900869373 /* CurrencySwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySwitcher.swift; sourceTree = "<group>"; };
@@ -84,6 +89,7 @@
 				140EC2311FE1BBE400406670 /* MyVariables.swift */,
 				1439CD2E1FE021AF0032E629 /* Float+WithSeparator.swift */,
 				14079B3A1FE2CB7000B6296A /* View+GetDataDelegate.swift */,
+				148826C9200FDA5900155A62 /* Notification.swift */,
 			);
 			name = "Extensions + Others";
 			sourceTree = "<group>";
@@ -154,10 +160,12 @@
 		147448EB1FCC226400ABBED8 /* Coin */ = {
 			isa = PBXGroup;
 			children = (
+				148826C8200FD8FB00155A62 /* Coin.entitlements */,
 				144B96D11FCED57100E935A0 /* Controller */,
 				144B96D01FCED56A00E935A0 /* View */,
 				144B96CF1FCED55300E935A0 /* Model */,
 				147448FA1FCC226400ABBED8 /* Info.plist */,
+				1422F49C2006600A004F18AC /* GoogleService-Info.plist */,
 			);
 			path = Coin;
 			sourceTree = "<group>";
@@ -215,6 +223,11 @@
 					147448E81FCC226400ABBED8 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -247,6 +260,7 @@
 				147448F91FCC226400ABBED8 /* LaunchScreen.storyboard in Resources */,
 				147448F61FCC226400ABBED8 /* Assets.xcassets in Resources */,
 				147448F41FCC226400ABBED8 /* Main.storyboard in Resources */,
+				1422F49D2006600A004F18AC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,12 +308,22 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Coin/Pods-Coin-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -329,6 +353,7 @@
 				14E34E501FFE658100869373 /* --ToolBar.swift in Sources */,
 				14079B3B1FE2CB7000B6296A /* View+GetDataDelegate.swift in Sources */,
 				140EC22F1FE1955D00406670 /* PortfolioCell.swift in Sources */,
+				148826CA200FDA5900155A62 /* Notification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +491,8 @@
 			baseConfigurationReference = DC8E6B05A95D76BBA260FF8E /* Pods-Coin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Coin/Coin.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3PCT2K2AJ7;
 				INFOPLIST_FILE = Coin/Info.plist;
@@ -482,6 +509,8 @@
 			baseConfigurationReference = ED16C3E1D0F6C1706BFB0D03 /* Pods-Coin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Coin/Coin.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3PCT2K2AJ7;
 				INFOPLIST_FILE = Coin/Info.plist;
